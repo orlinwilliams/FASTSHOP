@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
-  //{ path: '', redirectTo: 'login-register', pathMatch: 'full' },
   {
     path: 'login-register',
     loadChildren: () =>
@@ -22,6 +22,8 @@ const routes: Routes = [
     loadChildren: () =>
       import('./admins/admins.module').then((m) => m.AdminsModule),
   },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: '**', redirectTo: 'not-found' },
 ];
 
 @NgModule({

@@ -8,11 +8,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 //COMPONENTES
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
+
 
 
 @NgModule({
-  declarations: [AppComponent, LandingPageComponent],
+  declarations: [AppComponent, LandingPageComponent,NotFoundComponent],
   imports: [
     BrowserModule,
     NgbModule,

@@ -92,7 +92,7 @@ h6 {
 HEADER 
 ************************************/
 .header {
-  background: url("../../assets/images-landingPage/fondoLanding.jpg") no-repeat
+  background: url("../../../assets/images-landingPage/fondoLanding.jpg") no-repeat
     fixed;
   background-size: cover;
   min-height: 650px;

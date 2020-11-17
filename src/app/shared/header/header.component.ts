@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { ToggleSidebarService } from 'src/app/services/toggle-sidebar.service';
 
 @Component({

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SidebarModule } from 'ng-sidebar';
 import { SharedRoutingModule } from './shared-routing.module';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //COMPONENTES
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
     CommonModule,
     SidebarModule.forRoot(),
     SharedRoutingModule,
+    NgbModule,
     FontAwesomeModule
   ],
   exports:[SidebarComponent,HeaderComponent]
