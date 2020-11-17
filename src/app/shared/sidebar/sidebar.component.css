@@ -1,0 +1,26 @@
+ng-sidebar-container {
+  height: 90vh;
+}
+::ng-deep aside {
+  background-color: #8d8f87;
+  box-shadow: 0 0 2.5em rgba(85, 85, 85, 0.4);
+  width: 220px;
+  
+}
+.container {
+  margin-top: 10px;
+}
+
+label {
+  font-size: 18px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+fa-icon {
+  font-size: 18px;
+}
+.iconArrow {
+  margin-top: 5px;
+  margin-right: 0;
+  cursor: pointer;
+}

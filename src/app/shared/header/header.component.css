@@ -1,0 +1,14 @@
+nav{
+  background: #585858;
+  height:10vh;
+}
+nav button{
+  margin-right: 4px;
+}
+.navbar-brand{
+  margin-right: 1px;
+  margin-left: 15px;
+}
+.nav-link a{
+  font-size: 18px;
+} 

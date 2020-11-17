@@ -1,0 +1,51 @@
+<ng-sidebar-container>
+  <ng-sidebar
+  [(opened)]="aponedSidebarService.opened"
+  [mode]="_MODES[_modeNum]"
+  [keyClose]="_keyClose"
+  [position]="_POSITIONS[_positionNum]"
+  [dock]="_dock"
+  [dockedSize]="'50px'"
+  [autoCollapseHeight]="_autoCollapseHeight"
+  [autoCollapseWidth]="_autoCollapseWidth"
+  [closeOnClickOutside]="_closeOnClickOutside"
+  [closeOnClickBackdrop]="_closeOnClickBackdrop"
+  [showBackdrop]="_showBackdrop"
+  [animate]="_animate"
+  [trapFocus]="_trapFocus"
+  [autoFocus]="_autoFocus"
+  [ariaLabel]="'My sidebar'"
+  >
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-9">
+          <label for="">Hola</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-9">
+          <label for="">Hola</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-9">
+          <label for="">Hola</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+    </div>
+  </ng-sidebar>
+  
+  <!-- Page content -->
+  <div ng-sidebar-content>
+    <router-outlet></router-outlet>
+  </div>
+</ng-sidebar-container>
