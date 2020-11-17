@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
-
 const routes: Routes = [
-  {path:'',component:LandingPageComponent },
+  { path: '', component: LandingPageComponent },
   //{ path: '', redirectTo: 'login-register', pathMatch: 'full' },
   {
     path: 'login-register',
@@ -17,6 +16,11 @@ const routes: Routes = [
     path: 'users',
     loadChildren: () =>
       import('./users/users.module').then((m) => m.UsersModule),
+  },
+  {
+    path: 'admins',
+    loadChildren: () =>
+      import('./admins/admins.module').then((m) => m.AdminsModule),
   },
 ];
 

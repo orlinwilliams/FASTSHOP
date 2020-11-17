@@ -1,11 +1,13 @@
+//MODULOS
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SidebarModule } from 'ng-sidebar';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+//COMPONENTES
+import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
@@ -15,9 +17,9 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    SidebarModule.forRoot(),
     FontAwesomeModule,
   ],
+  
   providers: [],
   bootstrap: [AppComponent],
 })
