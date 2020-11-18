@@ -1,12 +1,13 @@
-h2{
+/* h2{
   margin-top: 20px;
-}
+} */
+
 h3{
   margin-top: 5px;
 }
-.color{
+/* .color{
   color: #F1D048;
-}
+} */
 .card {
   box-shadow: 0px 2px 5px rgba(85, 85, 85, 0.80);
   cursor: pointer;

@@ -17,12 +17,14 @@ export class LandingPageComponent implements OnInit {
   constructor() {}
   collapseNavbar: string = '';
   ngOnInit(): void {}
-  @HostListener('window:scroll', []) onWindowScroll() {
+  
+  //EVENTO PARA DETERMINAR EL HIGH POR MEDIO DEL SCROLL 
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
     if (window.pageYOffset > 500) {
       this.collapseNavbar = 'top-nav-collapse';
     } else {
       this.collapseNavbar = '';
     }
-    
   }
 }

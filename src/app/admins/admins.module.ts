@@ -9,9 +9,11 @@ import { AdminsRoutingModule } from './admins-routing.module';
 import { AdminsComponent } from './admins.component';
 import { SharedModule } from '../shared/shared.module';
 import { CompaniesComponent } from './companies/companies.component';
+import { PricingComponent } from './pricing/pricing.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
-  declarations: [AdminsComponent, CompaniesComponent],
+  declarations: [AdminsComponent, CompaniesComponent, PricingComponent, UsersComponent],
   imports: [
     CommonModule,
     SharedModule,

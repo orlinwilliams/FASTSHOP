@@ -11,11 +11,13 @@ import { HomeComponent } from './home/home.component';
 import { FilesComponent } from './files/files.component';
 
 
+
 @NgModule({
   declarations: [
     UsersComponent,
     HomeComponent,
     FilesComponent,
+    
   ],
   imports: [
     CommonModule,

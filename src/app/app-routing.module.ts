@@ -13,12 +13,12 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'users',
+    path: 'admin-companies',
     loadChildren: () =>
       import('./users/users.module').then((m) => m.UsersModule),
   },
   {
-    path: 'admins',
+    path: 'admin',
     loadChildren: () =>
       import('./admins/admins.module').then((m) => m.AdminsModule),
   },
