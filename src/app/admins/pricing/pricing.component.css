@@ -7,9 +7,5 @@
   box-shadow: 1px 1px 8px rgba(110, 110, 110, 0.6);
 }
 .card:hover{
-  box-shadow: 3px 3px 12px rgba(110, 110, 110, 0.6);
-}
-.btn{
-  margin-right: 10px;
-  color: white;
+  box-shadow: 3px 3px 14px rgba(110, 110, 110, 0.6);
 }

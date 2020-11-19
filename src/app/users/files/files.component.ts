@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-files',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalNewFileService:NgbModal) { }
 
   ngOnInit(): void {
   }
 
+  openModal(modal){
+    this. modalNewFileService.open(modal,{});
+  }
 }
