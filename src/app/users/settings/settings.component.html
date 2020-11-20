@@ -1,0 +1,251 @@
+<div class="container">
+  <!--DESCRIPCION DEL COMPONENTE-->
+  <div class="row text-center">
+    <div class="col-lg-12 col-md-12 col-sm col-12">
+      <h4>Configuraciones de la página web</h4>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-lg-12 col-md-12 col-sm col-12">
+      <p>
+        Selecciona tus menús de navegacion favicon y logotipo de la empresa y
+        otras configuraciones más
+      </p>
+    </div>
+  </div>
+
+  <!--CONTENIDO MENU-->
+  <div class="row">
+    <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+      <h5>Menús</h5>
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-8 col-md-8 col-sm-12">
+          <h6>Encabezado</h6>
+          <div class="card">
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Nombre del menú</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="formGroupExampleInput"
+                    placeholder="Nombre menú"
+                  />
+                </div>
+                <div class="form-group">
+                  <p>Opciones del menú</p>
+                  <button class="btn btn-warning btn-sm">
+                    <strong>+</strong> Item
+                  </button>
+                </div>
+                <hr />
+                <div class="form-group">
+                  <div class="row justify-content-between">
+                    <div class="col-6 col-lg-6 col-md-8">
+                      <span>Nombre Item</span>
+                    </div>
+                    <div class="col-6 col-lg-4 col-md-4">
+                      <div class="row flex-row-reverse">
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                        <button class="btn btn-warning btn-sm">Editar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 col-lg-4 col-md-4" *ngIf="showDescription">
+          <p>
+            Elije tu encabezado/header/Navbar que se utilizara por defecto en
+            todas tus páginas
+          </p>
+          <p>
+            Los menús, o listas de enlaces, ayudan a que tus clientes puedan
+            navegar en tu tienda online
+          </p>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-12 col-lg-8 col-md-8 col-sm-12">
+          <h6>Pie de página</h6>
+          <div class="card">
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Nombre del menú</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="formGroupExampleInput"
+                    placeholder="Nombre menú"
+                  />
+                </div>
+                <div class="form-group">
+                  <p>Opciones del menú</p>
+                  <button class="btn btn-warning btn-sm">
+                    <strong>+</strong> Item
+                  </button>
+                </div>
+                <hr />
+                <div class="form-group">
+                  <div class="row justify-content-between">
+                    <div class="col-6 col-lg-6 col-md-8">
+                      <span>Nombre Item</span>
+                    </div>
+                    <div class="col-6 col-lg-4 col-md-4">
+                      <div class="row flex-row-reverse">
+                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                        <button class="btn btn-warning btn-sm">Editar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 col-lg-4 col-md-4" *ngIf="showDescription">
+          <p>
+            Elije tu pie de página/Footer que se utilizara por defecto en todas
+            tus páginas
+          </p>
+          <p>
+            Los menús, o listas de enlaces, ayudan a que tus clientes puedan
+            navegar en tu tienda online.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--FAVICON-->
+  <h6>Favicon</h6>
+  <div class="row align-items-center">
+    <div class="col-12 col-lg-8 col-md-8 col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row align-items-center justify-content-between">
+            <div class="col-lg-8 col-sm-9 col-md-8 col-9">
+              <form>
+                <div class="form-group">
+                  <div class="custom-file">
+                    <input
+                      type="file"
+                      class="custom-file-input"
+                      id="customFileLang"
+                      lang="es"
+                    />
+                    <label class="custom-file-label" for="customFileLang"
+                      >Seleccionar Archivo</label
+                    >
+                  </div>
+                </div>
+              </form>
+              <div class="form-group">
+                <button class="btn btn-warning">Subir</button>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-md-3 col-3">
+              <img src="../../../favicon.svg" alt="" style="height: 20%" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-2 col-lg-4 col-md-4" *ngIf="showDescription">
+      <p>
+        También conocido como icono de página, es una pequeña imagen asociada
+        con una página o sitio web
+      </p>
+    </div>
+  </div>
+  <!--Logotipo-->
+  <h6>Logotipo</h6>
+  <div class="row align-items-center">
+    <div class="col-12 col-lg-8 col-md-8 col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row align-items-center justify-content-between">
+            <div class="col-lg-8 col-sm-9 col-md-8 col-9">
+              <form>
+                <div class="form-group">
+                  <div class="custom-file">
+                    <input
+                      type="file"
+                      class="custom-file-input"
+                      id="customFileLang"
+                      lang="es"
+                    />
+                    <label class="custom-file-label" for="customFileLang"
+                      >Seleccionar Archivo</label
+                    >
+                  </div>
+                </div>
+              </form>
+              <div class="form-group">
+                <button class="btn btn-warning">Subir</button>
+              </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-md-3 col-3">
+              <img src="../../../favicon.svg" alt="" style="height: 20%" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-2 col-lg-4 col-md-4" *ngIf="showDescription">
+      <p>
+        El un signo gráfico que identifica a una empresa, un producto comercial
+      </p>
+    </div>
+  </div>
+  <h6>Título, descripción y palabras clave</h6>
+  <div class="row align-items-center">
+    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Título</label>
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupExampleInput"
+                placeholder="Título de la página web"
+              />
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Descripción</label>
+              <textarea
+                class="form-control"
+                id="formGroupExampleInput2"
+                rows="4"
+                placeholder="Descripción de la página"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput3">Palabras clave</label>
+              <input
+                type="text"
+                class="form-control"
+                id="formGroupExampleInput3"
+                placeholder="palabras clave"
+              />
+            </div>
+            <button class="btn btn-warning">Guardar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-2 col-lg-4 col-md-4" *ngIf="showDescription">
+      <p>
+        Utiliza las palabras clave para busquedas en los navegadores web,
+        utiliza palabras precisas que describan tu páagina web.
+      </p>
+    </div>
+  </div>
+</div>

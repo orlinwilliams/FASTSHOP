@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FilesComponent } from './files/files.component';
 import { HomeComponent } from './home/home.component';
+import { SettingsComponent } from './settings/settings.component';
 import { UsersComponent } from './users.component';
 
 
@@ -15,8 +16,12 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
-        path: 'archivos',
+        path: 'files',
         component: FilesComponent,
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
       },
     ],
   },

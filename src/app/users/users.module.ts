@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { UsersComponent } from './users.component';
 import { HomeComponent } from './home/home.component';
 import { FilesComponent } from './files/files.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -17,6 +18,7 @@ import { FilesComponent } from './files/files.component';
     UsersComponent,
     HomeComponent,
     FilesComponent,
+    SettingsComponent,
     
   ],
   imports: [
