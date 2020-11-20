@@ -1,135 +1,46 @@
-<div>
-  <div class="container">
-    <div class="row vh-100 align-items-center justify-content-center">
-      <div class="col-12 col-lg-12">
-        <div class="row justify-content-center mb-4">
-          <div class="col-10 col-md-6 col-lg-4">
-            <img
-              src="../../../assets/imagesFastweb/iconLetrasGris.svg"
-              alt=""
-              srcset=""
-            />
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-10 col-lg-4 col-md-6">
-            <div class="card shadow">
-              <div class="card-body">
-                <h5 class="card-title text-center">Iniciar Sesión</h5>
-                <form>
-                  <div class="form-group">
-                    <label for="correoUsuario">Correo</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="correoUsuario"
-                      required
-                      placeholder="Ingresa tu correo"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="passwordUsuario">Contraseña</label>
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="passwordUsuario"
-                      required
-                      placeholder="Ingrese su contraseña"
-                    />
-                  </div>
-                  <br />
-                  <br />
-                  <a                  
-                    style="cursor: pointer; color: #007bff"
-                    (click)="openModalNewUser(modalNewUser)"
-                  >
-                    ¿No tienes una cuenta?</a
-                  >
-                  <button
-                    type="submit"
-                    class="btn btn-warning text-white float-right"
-                  >
-                    Ingresar
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal registrar empresa-->
-<ng-template #modalNewUser let-modal>
-  <div class="modal-header">
-    <button
-      type="button"
-      class="close"
-      aria-label="Close"
-      (click)="modal.dismiss('Cross click')"
-    >
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <div class="card border-0">
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-5 col-md-8 col-sm-8 col-xl-4">
+    <div class="card shadow">
       <div class="card-body">
-        <h5 class="card-title text-center">Comienza tu cuenta gratis</h5>
+        <h5 class="card-title text-center">Iniciar Sesión</h5>
         <form>
           <div class="form-group">
-            <label for="nuevoUsuarioNombre">Nombre</label>
-            <input
-              type="text"
-              class="form-control"
-              id="nuevoUsuarioNombre"
-              required
-              placeholder="Ingrese su nombre"
-            />
-          </div>
-          <div class="form-group">
-            <label for="nuevoUsuarioCorreo">Correo</label>
+            <label for="correoUsuario">Correo</label>
             <input
               type="email"
               class="form-control"
-              id="nuevoUsuarioCorreo"
+              id="correoUsuario"
               required
               placeholder="Ingresa tu correo"
             />
           </div>
           <div class="form-group">
-            <label for="nuevoUsuarioPassword">Contraseña</label>
+            <label for="passwordUsuario">Contraseña</label>
             <input
               type="password"
               class="form-control"
-              id="nuevoUsuarioPassword"
+              id="passwordUsuario"
               required
               placeholder="Ingresa tu contraseña"
             />
           </div>
-          <div class="form-group">
-            <label for="nuevaTienda">Nombre Tienda</label>
-            <input
-              type="text"
-              class="form-control"
-              id="nuevaTienda"
-              required
-              placeholder="Ingrese nombre tienda"
-            />
-          </div>
           <br />
           <br />
-
-          <button
-            type="button"
-            class="btn btn-outline-dark"
-            (click)="modal.close('Save click')"
+          <a
+            style="cursor: pointer; color: #007bff"
+            [routerLink]="['/login/register']"
           >
-            Iniciar sesión
+            ¿No tienes una cuenta?</a
+          >
+          <button
+            type="submit"
+            class="btn btn-warning text-white float-right"
+          >
+            Ingresar
           </button>
         </form>
       </div>
     </div>
   </div>
-</ng-template>
+</div>
+

@@ -6,7 +6,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   {
-    path: 'login-register',
+    path: 'login',
     loadChildren: () =>
       import('./login-register/login-register.module').then(
         (m) => m.LoginRegisterModule

@@ -1,0 +1,11 @@
+.price{
+  margin-top: 20%;
+  font-size: 12vh;
+}
+.card{
+  margin-bottom: 4px;
+  box-shadow: 1px 1px 8px rgba(110, 110, 110, 0.6);
+}
+.card:hover{
+  box-shadow: 3px 3px 14px rgba(110, 110, 110, 0.6);
+}

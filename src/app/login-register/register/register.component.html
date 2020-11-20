@@ -1,1 +1,209 @@
-<p>register works!</p>
+<div class="row justify-content-center mb-3">
+  <a href="" [routerLink]="['/login']"> ¿Ya tienes una cuenta?</a>
+</div>
+<div class="row justify-content-center">
+  <!--formulario-->
+  <div class="col-6 col-lg-6 col-md-6 col-sm-6 col-xl-6">
+    <h5>Regístrate</h5>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center">Datos</h5>
+
+        <form>
+          <div class="form-group">
+            <label for="userName">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userName"
+              required
+              placeholder="Escriba su nombre"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Correo</label>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              required
+              placeholder="correo electronico"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <label>Tipo de usuario</label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios1"
+              value="option1"
+              checked
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              Cliente
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios2"
+              value="option2"
+            />
+            <label class="form-check-label" for="exampleRadios2">
+              Empresa
+            </label>
+          </div>
+          <br />
+          <button class="btn btn-warning">Registrarme</button>
+          <br />
+          <br />
+          <div id="">
+            <div class="form-group">
+              <label for="nuevaTienda">Nombre Tienda</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nuevaTienda"
+                required
+                placeholder="Ingrese nombre tienda"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Categoria empresa</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Elegir opción</option>
+                <option>Ropa</option>
+                <option>Zapatos</option>
+                <option>Computadoras</option>
+                <option>Accesorios para celular</option>
+                <option>Libros</option>
+                <option>Maquillaje</option>
+                <option>Servicios varios</option>
+                <option>Venta en general</option>
+                <option>otros</option>
+              </select>
+            </div>
+          </div>
+        </form>
+        <button class="btn btn-warning">Registrarme</button>
+      </div>
+    </div>
+  </div>
+
+  <!--PLANES-->
+  <div class="col-6 col-lg-6 col-md-6 col-sm-6 col-xl-6">
+    <h5>Elegi un plan</h5>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                <div class="row justify-content-center align-items-center">
+                  <span class="price">20</span><span>$</span>
+                  <p>Mensual</p>
+                </div>
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                <h5 class="card-title"><span>Emprendedor</span></h5>
+                <span>Descripción:</span>
+                <p>
+                  Todas las herramientas básicas para poder crear tu tienda en
+                  línea.
+                </p>
+                <p>Cuentas para empleados: <span>4</span></p>
+                <div class="custom-control custom-switch">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="customSwitch1"
+                  />
+                  <label class="custom-control-label" for="customSwitch1"
+                    >Elegir este plan</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                <div class="row justify-content-center align-items-center">
+                  <span class="price">20</span><span>$</span>
+                  <p>Mensual</p>
+                </div>
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                <h5 class="card-title"><span>Emprendedor</span></h5>
+                <span>Descripción:</span>
+                <p>
+                  Todas las herramientas básicas para poder crear tu tienda en
+                  línea.
+                </p>
+                <p>Cuentas para empleados: <span>4</span></p>
+                <div class="custom-control custom-switch">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="customSwitch2"
+                  />
+                  <label class="custom-control-label" for="customSwitch2"
+                    >Elegir este plan</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+                <div class="row justify-content-center align-items-center">
+                  <span class="price">20</span><span>$</span>
+                  <p>Mensual</p>
+                </div>
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+                <h5 class="card-title"><span>Emprendedor</span></h5>
+                <span>Descripción:</span>
+                <p>
+                  Todas las herramientas básicas para poder crear tu tienda en
+                  línea.
+                </p>
+                <p>Cuentas para empleados: <span>4</span></p>
+                <div class="custom-control custom-switch">
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    id="customSwitch3"
+                  />
+                  <label class="custom-control-label" for="customSwitch3"
+                    >Elegir este plan</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
