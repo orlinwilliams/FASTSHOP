@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersRoutingModule } from './users-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 //COMPONENTES
@@ -13,6 +14,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { PagesComponent } from './pages/pages.component';
 
 
 
@@ -25,11 +27,13 @@ import { CategoriesComponent } from './categories/categories.component';
     ProductsComponent,
     ProductComponent,
     CategoriesComponent,
+    PagesComponent,
     
   ],
   imports: [
     CommonModule,
     SharedModule,
+    NgbModule,
     UsersRoutingModule,
   ],
 })

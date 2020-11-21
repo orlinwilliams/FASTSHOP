@@ -11,9 +11,11 @@ import { SharedModule } from '../shared/shared.module';
 import { CompaniesComponent } from './companies/companies.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { UsersComponent } from './users/users.component';
+import { TemplatesComponent } from './templates/templates.component';
+
 
 @NgModule({
-  declarations: [AdminsComponent, CompaniesComponent, PricingComponent, UsersComponent],
+  declarations: [AdminsComponent, CompaniesComponent, PricingComponent, UsersComponent, TemplatesComponent],
   imports: [
     CommonModule,
     SharedModule,

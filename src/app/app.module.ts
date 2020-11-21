@@ -14,8 +14,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 
+
 @NgModule({
-  declarations: [AppComponent, LandingPageComponent,NotFoundComponent],
+  declarations: [AppComponent, LandingPageComponent,NotFoundComponent,],
   imports: [
     BrowserModule,
     NgbModule,

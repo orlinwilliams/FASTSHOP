@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <!-- SALUDO -->
+  <div class="row text-center">
+    <div class="col-12">
+      <h3>Administrar páginas web</h3>
+    </div>
+  </div>
+  <!-- CONTENT COMPONENT -->
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8 col-md-10 col-sm-10">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-tittle text-center">Lista de páginas</h5>
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fasthsop2.0</td>
+                <td>Contactanos</td>
+                <td>
+                  <div ngbDropdown>
+                    <button
+                      class="btn btn-warning"
+                      id="dropdownBasic1"
+                      ngbDropdownToggle
+                    >
+                      Editar
+                    </button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                      <button ngbDropdownItem>Ediar código</button>
+                      <button ngbDropdownItem>Editar en línea</button>
+                    </div>
+                  </div>
+                </td>
+
+                <td><button class="btn btn-danger btn-sm">Eliminar</button></td>
+              </tr>
+              <tr>
+                <td>Fasthsop2.0</td>
+                <td>Home</td>
+                <td>
+                  <div ngbDropdown>
+                    <button
+                      class="btn btn-warning"
+                      id="dropdownBasic1"
+                      ngbDropdownToggle
+                    >
+                      Editar
+                    </button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                      <button ngbDropdownItem>Ediar código</button>
+                      <button ngbDropdownItem>Editar en línea</button>
+                    </div>
+                  </div>
+                </td>
+                <td><button class="btn btn-danger btn-sm">Eliminar</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
