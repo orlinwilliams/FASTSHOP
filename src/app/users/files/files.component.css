@@ -1,14 +1,13 @@
-.card{
+/* .card{
   margin-top: 8px;
-}
+} */
 .card img{
   height: 150px;
   border: none;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 .row{
   margin-top: 5px;
   margin-bottom: 5px;
-}
-h3{
-  margin-top: 8px;
 }

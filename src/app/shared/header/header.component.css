@@ -1,6 +1,7 @@
 nav{
   background: #585858;
   height: 10vh;
+  box-shadow: 0 2px 12px rgba(110, 110, 110, 0.6);;
 }
 nav button{
   margin-right: 4px;

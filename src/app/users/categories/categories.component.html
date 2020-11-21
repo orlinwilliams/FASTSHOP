@@ -1,1 +1,54 @@
-<p>categories works!</p>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-12">
+      <h3>Administra las categorias de tus productos</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-8 col-md-8 col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">Lista de categorias</h5>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Categoria</th>
+                <th scope="col">Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ropa</td>
+                <td>Ropa nueva de marca zara</td>
+              </tr>
+              <tr>
+                <td>Zapatos Caballeros</td>
+                <td>Zapatos para oficina para caballeros</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">Agregar nueva categoria </h5>
+          <form >
+            <div class="form-group">
+              <label for="nombreCategoria">Nombre</label> 
+              <input type="text" class="form-control" placeholder="Maquillaje.." id="nombreCategoria">
+            </div>
+            <div class="form-group">
+              <label for="descripcionCategoria">Descripción</label> 
+              <textarea type="text" class="form-control" placeholder="Maquillje marca loreal.." id="descripcionCategoria" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-warning">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

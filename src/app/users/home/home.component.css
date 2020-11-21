@@ -1,18 +1,7 @@
-/* h2{
-  margin-top: 20px;
-} */
 
-h3{
-  margin-top: 5px;
-}
-/* .color{
-  color: #F1D048;
-} */
-.card {
-  box-shadow: 0px 2px 5px rgba(85, 85, 85, 0.80);
+.card-home {
   cursor: pointer;
   overflow: hidden;
-  border: none;
   height:200px;
   margin-top: 10px;
   
@@ -22,10 +11,6 @@ h3{
   height:100% ;
   filter:brightness(60%);
 }
-/* .card:hover {
-  
-  box-shadow: 0px 1px 3px rgba(85, 85, 85, 0.50);
-}  */
 .card:hover img{
   filter:brightness(30%);
   transform: scale(1.2);
