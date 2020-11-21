@@ -10,6 +10,9 @@ import { UsersComponent } from './users.component';
 import { HomeComponent } from './home/home.component';
 import { FilesComponent } from './files/files.component';
 import { SettingsComponent } from './settings/settings.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductComponent } from './product/product.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 
@@ -19,6 +22,9 @@ import { SettingsComponent } from './settings/settings.component';
     HomeComponent,
     FilesComponent,
     SettingsComponent,
+    ProductsComponent,
+    ProductComponent,
+    CategoriesComponent,
     
   ],
   imports: [
