@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  <div class="row text-center">
+    <div class="col-12">
+      <h3>Administración de temas</h3>
+      <p>
+        Administra los temas que los usuarios podrían implementar en sus páginas
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <button class="btn btn-warning">Nuevo tema</button>
+    </div>
+  </div>
+
+  <!-- CONTENT COMPONENT -->
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-8 col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-tittle">Lista de temas</h5>
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Opción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fasthsop2.0</td>
+                <td>Tema estilo dark</td>
+                <td><button class="btn btn-warning btn-sm">Editar</button></td>
+              </tr>
+              <tr>
+                <td>Fasthsop2.0</td>
+                <td>lito</td>
+                <td><button class="btn btn-warning btn-sm">Editar</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8 col-12 col-md-6 col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-tittle">Nuevo tema</h5>
+          <form >
+            <div class="form-group">
+              <label for="nombreTema">Nombre</label>  
+              <input type="text" class="form-control" id="nombreTema" placeholder="Dark..">
+            </div>
+            <div class="form-group">
+              <label for="descripcionTema">Descripción</label>  
+              <textarea class="form-control"  name="descripcionTema" id="" rows="2" placeholder="Tema para tiendas de ropa.."></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-tittle">Css</h5>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-tittle">Javascript</h5>
+        </div>
+      </div>
+
+      <button class="btn btn-warning">Guardar</button>
+    </div>
+  </div>
+  
+</div>
