@@ -6,124 +6,173 @@
   <div class="col-6 col-lg-6 col-md-6 col-sm-6 col-xl-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title text-center">Registrate</h5>
+        <h5 class="card-title text-center">Regístrate</h5>
 
-        <form>
+        <form
+          [formGroup]="formRegisterClient"
+          class="needs-validation"
+          [ngClass]="{
+            'was-validated': formRegisterClient.valid
+          }"
+          novalidate
+        >
           <div class="form-group">
             <label for="userName">Nombre</label>
             <input
+              formControlName="username"
               type="text"
               class="form-control"
               id="userName"
               required
-              placeholder="Escriba su nombre"
+              placeholder="Pancho panza"
             />
           </div>
           <div class="form-group">
             <label for="exampleFormControlInput1">Correo</label>
             <input
+              formControlName="email"
               type="email"
               class="form-control"
               id="exampleFormControlInput1"
               required
-              placeholder="correo electrónico"
+              placeholder="usuario@correo.com"
             />
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input
+              (keyup)="passwordValidator()"
+              formControlName="password"
               type="password"
               class="form-control"
               id="exampleInputPassword1"
             />
+            <small
+              id="passwordValidator"
+              *ngIf="showMessageErrorPassword"
+              class="form-text text-muted"
+              >La contraseña debe de contener al menos 4 caracteres</small
+            >
           </div>
           <label>Tipo de usuario</label>
-          <div class="form-check">
+          <div class="form-check" (change)="changeOptioTypeUser($event)">
             <input
+              formControlName="typeUsers"
               class="form-check-input"
               type="radio"
-              name="exampleRadios"
+              name="typeUsers"
               id="exampleRadios1"
-              value="option1"
-              checked
+              value="client"
             />
             <label class="form-check-label" for="exampleRadios1">
               Cliente
             </label>
           </div>
-          <div class="form-check">
+          <div class="form-check" (change)="changeOptioTypeUser($event)">
             <input
+              formControlName="typeUsers"
               class="form-check-input"
               type="radio"
-              name="exampleRadios"
+              name="typeUsers"
               id="exampleRadios2"
-              value="option2"
+              value="company"
             />
             <label class="form-check-label" for="exampleRadios2">
               Empresa
             </label>
           </div>
           <br />
-          <button class="btn btn-warning">Registrarme</button>
-          <br />
-          <br />
-          <div id="">
-            <div class="form-group">
-              <label for="nuevaTienda">Nombre Tienda</label>
-              <input
-                type="text"
-                class="form-control"
-                id="nuevaTienda"
-                required
-                placeholder="Ingrese nombre tienda"
-              />
-            </div>
-            <div class="form-group">
-              <label for="pais">País</label>
-              <select class="form-control" id="pais">
-                <option>Honduras</option>
-                <option>Costa Rica</option>                
-                <option>EEUU</option>
-                <option> EL Salvador</option>
-                <option>México</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="direccion">Dirección</label>
-              <input
-                type="text"
-                class="form-control"
-                id="direccion"
-                required
-                placeholder="Ingrese su direccion"
-              />
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Categoria empresa</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Elegir opción</option>
-                <option>Indumentaria</option>                
-                <option>Computadoras</option>
-                <option>Accesorios para celular</option>
-                <option>Libros</option>
-                <option>Belleza</option>
-                <option>Electrónica</option>
-                <option>Servicios</option>
-                <option>Servicios virtuales</option>
-                <option>Venta en general</option>
-                <option>Aún no decido</option>
-                <option>Otros</option>
-              </select>
-            </div>
-          </div>
+          <button
+            class="btn btn-warning"
+            [disabled]="!formRegisterClient.valid"
+            *ngIf="showButtonClient"
+            (click)="registerClientUser()"
+          >
+            Registrarme
+          </button>
         </form>
-        <button class="btn btn-warning">Registrarme</button>
+      </div>
+    </div>
+    <!-- OPCIONES DE EMPRESAS -->
+    <div class="card" *ngIf="showOptionCompany">
+      <div class="card-body">
+        <form
+          [formGroup]="formRegisterCompany"
+          class="needs-validation"
+          [ngClass]="{
+            'was-validated': formRegisterCompany.valid
+          }"
+        >
+          <div class="form-group">
+            <label for="nuevaTienda">Nombre Tienda</label>
+            <input
+              formControlName="nameCompany"
+              type="text"
+              class="form-control"
+              id="nuevaTienda"
+              required
+              placeholder="Inversiones Pancho"
+            />
+          </div>
+          <div class="form-group">
+            <label for="pais">País</label>
+            <select class="form-control" id="pais" formControlName="country">
+              <option>Honduras</option>
+              <option>Costa Rica</option>
+              <option>EEUU</option>
+              <option>EL Salvador</option>
+              <option>México</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input
+              formControlName="address"
+              type="text"
+              class="form-control"
+              id="direccion"
+              required
+              placeholder="Colonia las ministas.."
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Categoria empresa</label>
+            <select
+              class="form-control"
+              id="exampleFormControlSelect1"
+              formControlName="categoryCompany"
+            >
+              <option>Elegir opción</option>
+              <option>Indumentaria</option>
+              <option>Computadoras</option>
+              <option>Accesorios para celular</option>
+              <option>Libros</option>
+              <option>Belleza</option>
+              <option>Electrónica</option>
+              <option>Servicios</option>
+              <option>Servicios virtuales</option>
+              <option>Venta en general</option>
+              <option>Aún no decido</option>
+              <option>Otros</option>
+            </select>
+          </div>
+          <button
+            [disabled]="!formRegisterCompany.valid || !formRegisterClient.valid || !currentPackage"
+            class="btn btn-warning"
+            (click)="openModalPay(modalPayCompany)"
+          >
+            Registrarme
+          </button>
+        </form>
       </div>
     </div>
   </div>
 
   <!--PLANES-->
-  <div class="col-6 col-lg-6 col-md-6 col-sm-6 col-xl-6">
+  <div
+    class="col-6 col-lg-6 col-md-6 col-sm-6 col-xl-6"
+    *ngIf="showOptionCompany"
+  >
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="card">
@@ -145,9 +194,11 @@
                 <p>Cuentas para empleados: <span>4</span></p>
                 <div class="custom-control custom-switch">
                   <input
-                    type="checkbox"
+                    (click)="choosePackage(1)"
+                    type="radio"
                     class="custom-control-input"
                     id="customSwitch1"
+                    name="choosePackage"
                   />
                   <label class="custom-control-label" for="customSwitch1"
                     >Elegir este plan</label
@@ -178,9 +229,11 @@
                 <p>Cuentas para empleados: <span>4</span></p>
                 <div class="custom-control custom-switch">
                   <input
-                    type="checkbox"
+                    (click)="choosePackage(2)"
+                    type="radio"
                     class="custom-control-input"
                     id="customSwitch2"
+                    name="choosePackage"
                   />
                   <label class="custom-control-label" for="customSwitch2"
                     >Elegir este plan</label
@@ -211,9 +264,11 @@
                 <p>Cuentas para empleados: <span>4</span></p>
                 <div class="custom-control custom-switch">
                   <input
-                    type="checkbox"
+                    (click)="choosePackage(3)"
+                    type="radio"
                     class="custom-control-input"
                     id="customSwitch3"
+                    name="choosePackage"
                   />
                   <label class="custom-control-label" for="customSwitch3"
                     >Elegir este plan</label
@@ -227,3 +282,86 @@
     </div>
   </div>
 </div>
+<!-- MODAL PARA PAGAR -->
+<ng-template #modalPayCompany let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Realizar pago
+      <fa-icon [icon]="faShoppingCart" class="color-yellow"></fa-icon>
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-tittle text-center">Forma de pago</h5>
+            <form>
+              <div class="form-group">
+                <fa-icon [icon]="faCcPaypal" class="icon-pay"></fa-icon>
+                <fa-icon [icon]="faCcVisa" class="icon-pay"></fa-icon>
+              </div>
+              <div class="form-group">
+                <label for="numberCard">Número de tarjeta</label>
+                <input type="text" class="form-control" id="numberCard" />
+              </div>
+              <div class="form-group">
+                <label for="pinCard">Pin tarjeta</label>
+                <input type="text" class="form-control" id="pinCard" />
+              </div>
+              <div class="form-group">
+                <button class="btn btn-warning" (click)="registerClientCompany()">
+                  Pagar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-tittle text-center">Su factura</h5>
+            <form>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-6">
+                    <span>Sub total</span>
+                  </div>
+                  <div class="col-6">
+                    <span>40$</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <span>Impuesto</span>
+                  </div>
+                  <div class="col-6">
+                    <span>5$</span>
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-6">
+                    <span>Total</span>
+                  </div>
+                  <div class="col-6">
+                    <span>45$</span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

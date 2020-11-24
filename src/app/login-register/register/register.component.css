@@ -1,4 +1,11 @@
-.price{
+.price {
   margin-top: 20%;
   font-size: 12vh;
+}
+.icon-pay {
+  font-size: 6vh;
+  margin-right: 20px;
+}
+.icon-pay:hover {
+  color: blue;
 }

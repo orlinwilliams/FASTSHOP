@@ -22,6 +22,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     NgbModule,
     AppRoutingModule,
     FontAwesomeModule,
+    
   ],
   
   providers: [],
