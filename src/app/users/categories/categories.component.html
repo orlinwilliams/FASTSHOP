@@ -30,21 +30,45 @@
         </div>
       </div>
     </div>
+    <!-- Nueva categoria -->
     <div class="col-12 col-lg-4 col-md-4 col-sm-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title text-center">Agregar nueva categoría </h5>
-          <form >
+          <h5 class="card-title text-center">Agregar nueva categoría</h5>
+          <form
+            [formGroup]="formNewCategory"
+            class="needs-validation"
+            [ngClass]="{ 'was-validated': formNewCategory.valid }"
+          >
             <div class="form-group">
-              <label for="nombreCategoria">Nombre</label> 
-              <input type="text" class="form-control" placeholder="Maquillaje.." id="nombreCategoria">
+              <label for="nombreCategoria">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Maquillaje.."
+                id="nombreCategoria"
+                formControlName="nameCategory"
+              />
             </div>
             <div class="form-group">
-              <label for="descripcionCategoria">Descripción</label> 
-              <textarea type="text" class="form-control" placeholder="Maquillje marca loreal.." id="descripcionCategoria" rows="3"></textarea>
+              <label for="descripcionCategoria">Descripción</label>
+              <textarea
+                formControlName="description"
+                type="text"
+                class="form-control"
+                placeholder="Maquillje marca loreal.."
+                id="descripcionCategoria"
+                rows="3"
+              ></textarea>
             </div>
             <div class="form-group">
-              <button class="btn btn-warning">Guardar</button>
+              <button
+                class="btn btn-warning"
+                [disabled]="!formNewCategory.valid"
+                (click)="savedNewCategory()"
+              >
+                Guardar
+              </button>
             </div>
           </form>
         </div>

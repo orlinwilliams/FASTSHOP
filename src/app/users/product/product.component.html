@@ -9,10 +9,11 @@
     <div class="col-6 col-lg-6 col-md-6 col-sm-6">
       <div class="card">
         <div class="card-body">
-          <form>
+          <form [formGroup]="formNewProduct">
             <div class="form-group">
               <label for="formGroupExampleInput">Nombre</label>
               <input
+                formControlName="nameProduct"
                 type="text"
                 class="form-control"
                 id="formGroupExampleInput"
@@ -22,6 +23,7 @@
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Descripción</label>
               <textarea
+                formControlName="description"
                 class="form-control"
                 id="exampleFormControlTextarea1"
                 rows="3"
@@ -33,25 +35,33 @@
       </div>
       <div class="card">
         <div class="card-body">
-          <form>
+          <form [formGroup]="formNewProduct">
             <div class="form-row">
               <div class="col">
                 <label for="precioArticulo">Precio</label>
-                <input
-                  type="text"
-                  id="precioArticulo"
-                  class="form-control"
-                  placeholder="Precio"
-                />
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                  </div>
+                  <input
+                    type="number"
+                    class="form-control"
+                    aria-label="Amount (to the nearest dollar)"
+                  />
+                </div>
               </div>
               <div class="col">
                 <label for="costoArticulo">Costo</label>
-                <input
-                  type="text"
-                  id="costoArticulo"
-                  class="form-control"
-                  placeholder="Costo"
-                />
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                  </div>
+                  <input
+                    type="number"
+                    class="form-control"
+                    aria-label="Amount (to the nearest dollar)"
+                  />
+                </div>
               </div>
             </div>
             <br />
@@ -62,6 +72,7 @@
             <div class="form-group">
               <div class="form-check">
                 <input
+                  formControlName="isv"
                   class="form-check-input"
                   type="checkbox"
                   id="gridCheck"
@@ -75,11 +86,21 @@
             <div class="form-row">
               <div class="col">
                 <label for="codigoArticulo">Código artículo</label>
-                <input type="text" id="codigoArticulo" class="form-control" />
+                <input
+                  type="text"
+                  id="codigoArticulo"
+                  class="form-control"
+                  formControlName="codeProduct"
+                />
               </div>
               <div class="col">
                 <label for="cantidadArticulo">Cantidad</label>
-                <input type="number" id="costoArticulo" class="form-control" />
+                <input
+                  type="number"
+                  id="costoArticulo"
+                  class="form-control"
+                  formControlName="quantityProduct"
+                />
               </div>
             </div>
           </form>
@@ -87,7 +108,7 @@
       </div>
       <div class="card">
         <div class="card-body">
-          <form>
+          <form [formGroup]="formNewProduct">
             <label> Multimedia</label>
             <div class="form-group">
               <div class="custom-file">
@@ -96,6 +117,7 @@
                   class="custom-file-input"
                   id="customFileLang"
                   lang="es"
+                  formControlName="imageProduct"
                 />
                 <label class="custom-file-label" for="customFileLang"
                   >Seleccionar Archivo</label
@@ -111,17 +133,21 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <form>
+              <form [formGroup]="formNewProduct">
                 <div class="form-group">
                   <label for="exampleFormControlSelect1">Categoría</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Ropa</option>
+                  <select
+                    class="form-control"
+                    id="exampleFormControlSelect1"
+                    formControlName="categoryProduct"
+                  >
+                    <option>Elegi una opción</option>
                     <option>Ropa</option>
                     <option>Ropa</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-warning">Agregar categoría</button>
+                  <a [routerLink]="['/admin-companies/categories']"> <strong>+</strong>categoría</a>
                 </div>
               </form>
             </div>
@@ -132,10 +158,15 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <form>
+              <form [formGroup]="formNewProduct">
                 <div class="form-group">
                   <label for="exampleFormControlSelect1">Estado producto</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
+                  <select
+                    class="form-control"
+                    id="exampleFormControlSelect1"
+                    formControlName="stateProduct"
+                  >
+                    <option>Elije una opción</option>
                     <option>Nuevo</option>
                     <option>Usuado</option>
                   </select>
@@ -143,6 +174,7 @@
                 <div class="form-group">
                   <label for="proveedor">Proveedor</label>
                   <input
+                    formControlName="provider"
                     type="text"
                     class="form-control"
                     placeholder="Usa Polo"
@@ -157,7 +189,13 @@
   </div>
   <div class="row">
     <div class="col-6 col-lg-6">
-      <button class="btn btn-warning">Guardar</button>
+      <button
+        class="btn btn-warning"
+        (click)="saveProduct()"
+        [disabled]="!formNewProduct.valid"
+      >
+        Guardar
+      </button>
     </div>
   </div>
 </div>

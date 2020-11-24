@@ -45,7 +45,11 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-tittle text-center">Nuevo usuario</h5>
-          <form>
+          <form
+            [formGroup]="formNewUser"
+            class="needs-validation"
+            [ngClass]="{ 'was-validated': formNewUser.valid }"
+          >
             <div class="form-group">
               <label for="userName">Nombre</label>
               <input
@@ -54,6 +58,7 @@
                 id="userName"
                 required
                 placeholder="Juan .."
+                formControlName ="username"
               />
             </div>
             <div class="form-group">
@@ -64,15 +69,24 @@
                 id="exampleFormControlInput1"
                 required
                 placeholder="usuario@correo.com"
+                formControlName ="email"
               />
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
               <input
+              (keyup)="passwordValidator()"
                 type="password"
                 class="form-control"
                 id="exampleInputPassword1"
+                formControlName ="password"
               />
+              <small
+              id="passwordValidator"
+              *ngIf="showMessageErrorPassword"
+              class="form-text text-muted"
+              >La contraseña debe de contener al menos 4 caracteres</small
+            >
             </div>
             <label>Tipo de usuario</label>
             <div class="form-check">
@@ -81,8 +95,8 @@
                 type="radio"
                 name="typeUser"
                 id="exampleRadios1"
-                value="option1"
-                checked
+                value="client"
+                
               />
               <label class="form-check-label" for="exampleRadios1">
                 Cliente
@@ -94,7 +108,8 @@
                 type="radio"
                 name="typeUser"
                 id="exampleRadios2"
-                value="option2"
+                value="company"
+                formControlName ="typeUser"
               />
               <label class="form-check-label" for="exampleRadios2">
                 Empresa
@@ -106,7 +121,8 @@
                 type="radio"
                 name="typeUser"
                 id="exampleRadios3"
-                value="option2"
+                value="admin"
+                formControlName ="typeUser"
               />
               <label class="form-check-label" for="exampleRadios3">
                 Administrador
@@ -114,7 +130,7 @@
             </div>
             <br />
             <div class="form-group">
-              <button class="btn btn-warning">Guardar</button>
+              <button class="btn btn-warning" [disabled]="!formNewUser.valid" (click)="savedNewUser()">Guardar</button>
             </div>
           </form>
         </div>

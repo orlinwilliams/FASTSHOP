@@ -67,9 +67,8 @@
         </div>
       </div>
     </div>
-  
   </div>
-  <hr>
+  <hr />
   <h3>Vídeos</h3>
   <div class="row justify-content-center">
     <div class="col-lg-3 col-md-4 col-sm-6 col-9">
@@ -100,7 +99,7 @@
       </div>
     </div>
   </div>
-  <hr>
+  <hr />
 </div>
 
 <!--MODAL NUEVO ARCHIVO-->
@@ -117,12 +116,39 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form [formGroup]="formNewFile">
       <div class="form-group">
-        <input type="file" class="form-control-file" />
+        <label for="titulo">Nombre</label>
+        <input
+          formControlName="nameFile"
+          type="text"
+          class="form-control"
+          placeholder="Imagen de fondo.."
+          id="titulo"
+        />
       </div>
       <div class="form-group">
-        <select name="" id="" class="form-control">
+        <div class="custom-file">
+          <input
+            type="file"
+            class="custom-file-input"
+            id="customFileLang"
+            lang="es"
+            formControlName="file"
+          />
+          <label class="custom-file-label" for="customFileLang"
+            >Seleccionar Archivo</label
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fileCategory">Categoria</label>
+        <select
+          name=""
+          id="fileCategory"
+          class="form-control"
+          formControlName="fileCategory"
+        >
           <option value="foto">foto</option>
           <option value="video">Video</option>
         </select>
@@ -133,7 +159,8 @@
     <button
       type="button"
       class="btn btn-warning"
-      (click)="modal.close('Save click')"
+      (click)="saveFile()"
+      [disabled]="!formNewFile.valid"
     >
       Subir
     </button>

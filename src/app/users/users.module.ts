@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UsersRoutingModule } from './users-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //COMPONENTES
 import { UsersComponent } from './users.component';
@@ -37,6 +37,8 @@ import { PageComponent } from './page/page.component';
     SharedModule,
     NgbModule,
     UsersRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
 })
 export class UsersModule {}
