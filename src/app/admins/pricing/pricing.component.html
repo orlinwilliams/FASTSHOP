@@ -6,7 +6,12 @@
   </div>
   <div class="row mb-2">
     <div class="col-lg-2 col-md-4 col-sm-4 col-6">
-      <button class="btn btn-warning">Nuevo plan</button>
+      <button
+        class="btn btn-warning"
+        (click)="openModalNewPrecing(modalNewPrecing)"
+      >
+        Nuevo plan
+      </button>
     </div>
   </div>
   <!-- Tarjetas Precios -->
@@ -29,7 +34,7 @@
                 línea.
               </p>
               <p>Cantidad de productos: <span>50</span></p>
-              <p>Cantidad de páginas <span>5</span></p>  
+              <p>Cantidad de páginas <span>5</span></p>
               <button class="btn btn-warning btn-sm">Editar</button>
               <button class="btn btn-danger btn-sm">Eliminar</button>
             </div>
@@ -51,10 +56,11 @@
               <h5 class="card-title"><span>Negocio</span></h5>
               <span>Descripción:</span>
               <p>
-                Soluciones avanzadas de comercio electrónico para expandir tu negocio.
+                Soluciones avanzadas de comercio electrónico para expandir tu
+                negocio.
               </p>
               <p>Cantidad de productos: <span>100</span></p>
-              <p>Cantidad de páginas: <span>12</span></p>  
+              <p>Cantidad de páginas: <span>12</span></p>
               <button class="btn btn-warning btn-sm">Editar</button>
               <button class="btn btn-danger btn-sm">Eliminar</button>
             </div>
@@ -76,10 +82,11 @@
               <h5 class="card-title"><span>Pro</span></h5>
               <span>Descripción:</span>
               <p>
-                Todo lo que necesitas para vender en línea, cuenta con todas las herramientas sin limitaciones
+                Todo lo que necesitas para vender en línea, cuenta con todas las
+                herramientas sin limitaciones
               </p>
               <p>Cantidad de productos: <span>1Ilimitados</span></p>
-              <p>Cantidad de páginas: <span>20</span></p>  
+              <p>Cantidad de páginas: <span>20</span></p>
               <button class="btn btn-warning btn-sm">Editar</button>
               <button class="btn btn-danger btn-sm">Eliminar</button>
             </div>
@@ -89,3 +96,93 @@
     </div>
   </div>
 </div>
+<!-- Modal NUEVO PRECIOS -->
+<ng-template #modalNewPrecing let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Nuevo plan</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card">
+      <div class="card-body">
+        <form
+          [formGroup]="formPrecing"
+          class="needs-validation"
+          [ngClass]="{
+            'was-validated': formPrecing.valid
+          }"
+        >
+          <div class="form-group">
+            <label for="titulo">Título</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Deluxe.."
+              id="titulo"
+              required
+              formControlName="title"
+            />
+          </div>
+          <div class="form-group">
+            <label for="description">Descripción</label>
+            <textarea
+              class="form-control"
+              name=""
+              id="description"
+              rows="2"
+              placeholder="Plan para emrpesas con descuento.."
+              formControlName="description"
+            ></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input
+              type="number"
+              class="form-control"
+              aria-label="Amount (to the nearest dollar)"
+              formControlName ="price"
+            />
+          </div>
+          <div class="form-group">
+            <label for="maxQuantityProduct">Cantidad de productos</label>
+            <input
+              type="number"
+              class="form-control"
+              id="maxQuantityProduct"
+              required
+              formControlName="maxQuantityProduct"
+            />
+          </div>
+          <div class="form-group">
+            <label for="maxQuantityPages">Cantidad de páginas</label>
+            <input
+              type="number"
+              class="form-control"
+              id="maxQuantityPages"
+              required
+              formControlName="maxQuantityPages"
+            />
+          </div>
+          <div class="form-group">
+            <button
+              [disabled]="!formPrecing.valid"
+              class="btn btn-warning btn-sm"
+              (click)="savePrecing()"
+            >
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</ng-template>
