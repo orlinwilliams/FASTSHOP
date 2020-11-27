@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { faCcPaypal, faCcVisa } from '@fortawesome/free-brands-svg-icons'
+import { faCcPaypal, faCcVisa } from '@fortawesome/free-brands-svg-icons';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,8 +16,9 @@ export class RegisterComponent implements OnInit {
   faShoppingCart = faShoppingCart;
   faCcPaypal = faCcPaypal;
   faCcVisa = faCcVisa;
-  currentPackage:boolean = false;
-  
+  currentPackage: boolean = false;
+  idChoosePackage: string = '';
+  idChosseRole: string = '';
 
   //FORMULARIO TIPO CLIENTE
   formRegisterClient = new FormGroup({
@@ -37,7 +38,7 @@ export class RegisterComponent implements OnInit {
       Validators.maxLength(30),
       Validators.minLength(this.minPassword),
     ]),
-    typeUsers: new FormControl('', [Validators.required]),
+    //role: new FormControl('', [Validators.required]),
   });
   //FORMULARIO TIPO CLIENTE
   formRegisterCompany = new FormGroup({
@@ -46,22 +47,22 @@ export class RegisterComponent implements OnInit {
       Validators.maxLength(50),
       Validators.minLength(3),
     ]),
-    country: new FormControl('', [
-      Validators.required,
-    ]),
+    country: new FormControl('', [Validators.required]),
     address: new FormControl('', [
       Validators.required,
       Validators.maxLength(60),
       Validators.minLength(5),
     ]),
     categoryCompany: new FormControl('', [Validators.required]),
+    //choosePackage: new FormControl('', [Validators.required]),
   });
 
-  constructor(private modalPayCompany:NgbModal) {}
+  constructor(private modalPayCompany: NgbModal) {}
 
   ngOnInit(): void {}
 
-  changeOptioTypeUser(event) {
+  changeOptioTypeUser(event, id) {
+    this.idChosseRole = id;
     if (event.target.value === 'company') {
       this.showButtonClient = false;
       this.showOptionCompany = true;
@@ -79,25 +80,45 @@ export class RegisterComponent implements OnInit {
       this.showMessageErrorPassword = true;
     } else this.showMessageErrorPassword = false;
   }
-  //
+
+  //REGISTRAR USUARIO TIPO CLIENTE
   registerClientUser() {
-    console.log(this.formRegisterClient.value);
+    let data = {
+      username: this.formRegisterClient.get('username').value,
+      email: this.formRegisterClient.get('email').value,
+      password: this.formRegisterClient.get('password').value,
+      idChosseRole: this.idChosseRole
+    }
+    console.log(data);
   }
-  registerCompanyUser(){
-    console.log(this.formRegisterCompany.value);
-  }
-  choosePackage(id){
+  //Escoge el plan seleccionado
+  choosePackage(id) {
     console.log('Id: ', id);
+    this.idChoosePackage = id;
     this.currentPackage = true;
     //if(event.target.value == )
   }
-  openModalPay(modal){
-    this.modalPayCompany.open(modal, { size: 'lg' }); 
+  openModalPay(modal) {
+    this.modalPayCompany.open(modal, { size: 'lg' });
   }
-  registerClientCompany(){
-    
-    this.modalPayCompany.dismissAll(); 
-    console.log(this.formRegisterCompany.value);
-    
+  //REGISTRAR USUARIO TIPO CLIENTE CUANDOS SE PAGA EL PLAN
+  registerCompany() {
+    let data = {
+      username: this.formRegisterClient.get('username').value,
+      email: this.formRegisterClient.get('email').value,
+      password: this.formRegisterClient.get('password').value,
+      role: this.idChosseRole,
+      nameCompany: this.formRegisterCompany.get('nameCompany').value,
+      country: this.formRegisterCompany.get('country').value,
+      address: this.formRegisterCompany.get('address').value,
+      categoryCompany: this.formRegisterCompany.get('categoryCompany').value,
+      idChoosePackage: this.idChoosePackage
+
+    };
+    this.modalPayCompany.dismissAll();
+    console.log(data);
+    // console.log(this.formRegisterClient.value);
+    // console.log(this.formRegisterCompany.value);
+    // console.log(this.idChoosePackage);
   }
 }

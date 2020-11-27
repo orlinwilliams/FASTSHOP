@@ -3,7 +3,7 @@
 </div>
 <div class="row justify-content-center">
   <!--formulario-->
-  <div class="col-6 col-lg-6 col-md-6 col-sm-6 col-xl-6">
+  <div class="col-12 col-lg-6 col-md-6 col-sm-10 col-xl-6">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title text-center">Regístrate</h5>
@@ -39,7 +39,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="exampleInputPassword1">Contraseña</label>
             <input
               (keyup)="passwordValidator()"
               formControlName="password"
@@ -55,12 +55,11 @@
             >
           </div>
           <label>Tipo de usuario</label>
-          <div class="form-check" (change)="changeOptioTypeUser($event)">
+          <div class="form-check" (change)="changeOptioTypeUser($event, 10)">
             <input
-              formControlName="typeUsers"
               class="form-check-input"
               type="radio"
-              name="typeUsers"
+              name="role"
               id="exampleRadios1"
               value="client"
             />
@@ -68,12 +67,12 @@
               Cliente
             </label>
           </div>
-          <div class="form-check" (change)="changeOptioTypeUser($event)">
+          <div class="form-check" (change)="changeOptioTypeUser($event, 20)">
             <input
-              formControlName="typeUsers"
+              
               class="form-check-input"
               type="radio"
-              name="typeUsers"
+              name="role"
               id="exampleRadios2"
               value="company"
             />
@@ -142,7 +141,6 @@
               id="exampleFormControlSelect1"
               formControlName="categoryCompany"
             >
-              <option>Elegir opción</option>
               <option>Indumentaria</option>
               <option>Computadoras</option>
               <option>Accesorios para celular</option>
@@ -170,7 +168,7 @@
 
   <!--PLANES-->
   <div
-    class="col-6 col-lg-6 col-md-6 col-sm-6 col-xl-6"
+    class="col-12 col-lg-6 col-md-6 col-sm-10 col-xl-6"
     *ngIf="showOptionCompany"
   >
     <div class="row">
@@ -178,13 +176,13 @@
         <div class="card">
           <div class="card-body">
             <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+              <div class="col-lg-3 col-md-3 col-sm-4 col-4">
                 <div class="row justify-content-center align-items-center">
                   <span class="price">20</span><span>$</span>
                   <p>Mensual</p>
                 </div>
               </div>
-              <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+              <div class="col-lg-9 col-md-9 col-sm-8 col-8">
                 <h5 class="card-title"><span>Emprendedor</span></h5>
                 <span>Descripción:</span>
                 <p>
@@ -199,6 +197,7 @@
                     class="custom-control-input"
                     id="customSwitch1"
                     name="choosePackage"
+                    
                   />
                   <label class="custom-control-label" for="customSwitch1"
                     >Elegir este plan</label
@@ -213,13 +212,13 @@
         <div class="card">
           <div class="card-body">
             <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+              <div class="col-lg-3 col-md-3 col-sm-4 col-4">
                 <div class="row justify-content-center align-items-center">
                   <span class="price">20</span><span>$</span>
                   <p>Mensual</p>
                 </div>
               </div>
-              <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+              <div class="col-lg-9 col-md-9 col-sm-8 col-8">
                 <h5 class="card-title"><span>Emprendedor</span></h5>
                 <span>Descripción:</span>
                 <p>
@@ -248,13 +247,13 @@
         <div class="card">
           <div class="card-body">
             <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+              <div class="col-lg-3 col-md-3 col-sm-4 col-4">
                 <div class="row justify-content-center align-items-center">
                   <span class="price">20</span><span>$</span>
                   <p>Mensual</p>
                 </div>
               </div>
-              <div class="col-lg-9 col-md-9 col-sm-9 col-9">
+              <div class="col-lg-9 col-md-9 col-sm-8 col-8">
                 <h5 class="card-title"><span>Emprendedor</span></h5>
                 <span>Descripción:</span>
                 <p>
@@ -318,7 +317,7 @@
                 <input type="text" class="form-control" id="pinCard" />
               </div>
               <div class="form-group">
-                <button class="btn btn-warning" (click)="registerClientCompany()">
+                <button class="btn btn-warning" (click)="registerCompany()">
                   Pagar
                 </button>
               </div>

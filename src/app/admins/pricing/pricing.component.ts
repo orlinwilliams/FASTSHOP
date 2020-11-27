@@ -16,7 +16,7 @@ export class PricingComponent implements OnInit {
       Validators.minLength(4),
     ]),
     price: new FormControl('', Validators.required),
-    maxQuantityProduct: new FormControl('', Validators.required),
+    maxQuantityProducts: new FormControl('', Validators.required),
     maxQuantityPages: new FormControl('', Validators.required),
   });
   constructor(private modalNewPrecing: NgbModal) {}
