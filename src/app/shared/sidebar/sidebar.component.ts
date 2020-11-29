@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { ToggleSidebarService } from 'src/app/services/toggle-sidebar.service';
+import { ToggleSidebarService } from 'src/app/services/shared/toggle-sidebar.service';
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({

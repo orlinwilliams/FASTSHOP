@@ -3,12 +3,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faCcPaypal, faCcVisa } from '@fortawesome/free-brands-svg-icons';
+import { PricingService } from 'src/app/services/shared/pricing.service';
+import { UserRolesService } from 'src/app/services/shared/user-roles.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  
   showOptionCompany: boolean = false;
   showButtonClient: boolean = true;
   showMessageErrorPassword: boolean = false;
@@ -19,6 +23,7 @@ export class RegisterComponent implements OnInit {
   currentPackage: boolean = false;
   idChoosePackage: string = '';
   idChosseRole: string = '';
+  typesUser:any = [];
 
   //FORMULARIO TIPO CLIENTE
   formRegisterClient = new FormGroup({
@@ -57,18 +62,44 @@ export class RegisterComponent implements OnInit {
     //choosePackage: new FormControl('', [Validators.required]),
   });
 
-  constructor(private modalPayCompany: NgbModal) {}
+  constructor(
+    private modalPayCompany: NgbModal,
+    private getPricingService: PricingService,
+    private getRoleService: UserRolesService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getPricingService.getPricing().subscribe(
+      (res) => { console.log(res)},
+      (error) => {
+        console.log(error);
+      }
+    );
+    this.getRoleService.getRoles().subscribe(
+      (res:any)=>{
+        if(res.status == true){
+          this.typesUser.push(res.result[1])
+          this.typesUser.push(res.result[2])
+          console.log(this.typesUser);
+          this.idChosseRole = this.typesUser[0]._id;
+        }else console.log("error charging type user");
+        
+      }, 
+      (error)=>{
+        console.log(error)
+    })
+  }
 
-  changeOptioTypeUser(event, id) {
-    this.idChosseRole = id;
+  changeOptionTypeUser(event) {
+    
     if (event.target.value === 'company') {
       this.showButtonClient = false;
       this.showOptionCompany = true;
+      this.idChosseRole = this.typesUser[1]._id;
     } else if (event.target.value === 'client') {
       this.showOptionCompany = false;
       this.showButtonClient = true;
+      
     }
   }
 
@@ -87,8 +118,8 @@ export class RegisterComponent implements OnInit {
       username: this.formRegisterClient.get('username').value,
       email: this.formRegisterClient.get('email').value,
       password: this.formRegisterClient.get('password').value,
-      idChosseRole: this.idChosseRole
-    }
+      idChosseRole: this.idChosseRole,
+    };
     console.log(data);
   }
   //Escoge el plan seleccionado
@@ -112,8 +143,7 @@ export class RegisterComponent implements OnInit {
       country: this.formRegisterCompany.get('country').value,
       address: this.formRegisterCompany.get('address').value,
       categoryCompany: this.formRegisterCompany.get('categoryCompany').value,
-      idChoosePackage: this.idChoosePackage
-
+      idChoosePackage: this.idChoosePackage,
     };
     this.modalPayCompany.dismissAll();
     console.log(data);
