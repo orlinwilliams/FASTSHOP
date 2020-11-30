@@ -6,7 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class RegisterService {
-  url: string = 'http://localhost:8888/pricing';
+  url: string = 'http://localhost:8888/register/client';
   constructor(private httpClient: HttpClient) {}
 
+  saveClient(client): Observable<any> {
+    return this.httpClient.post(this.url, client);
+  }
 }
