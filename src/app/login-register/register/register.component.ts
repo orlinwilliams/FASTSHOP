@@ -155,7 +155,7 @@ export class RegisterComponent implements OnInit {
       country: this.formRegisterCompany.get('country').value,
       address: this.formRegisterCompany.get('address').value,
       categoryCompany: this.formRegisterCompany.get('categoryCompany').value,
-      idChoosePackage: this.idChoosePackage,
+      price: this.idChoosePackage,
     };
     this.modalPayCompany.dismissAll();
     console.log(data);

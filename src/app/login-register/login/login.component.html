@@ -32,7 +32,9 @@
               required
             />
           </div>
+
           <br />
+          <small id="emailHelp"  *ngIf="errorPasswordEmail" class="form-text text-muted">contraseña o correo incorrecto</small>
           <br />
           <a
             style="cursor: pointer; color: #007bff"
@@ -44,7 +46,7 @@
             type="submit"
             class="btn btn-warning text-white float-right"
             [disabled]="!formLogin.valid"
-            (click)="submitLogin()"
+            (click)="login()"
           >
             Ingresar
           </button>
