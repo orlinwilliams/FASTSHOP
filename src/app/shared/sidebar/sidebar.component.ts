@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ToggleSidebarService } from 'src/app/services/shared/toggle-sidebar.service';
 import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from 'src/app/services/login-register/login.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,7 +10,7 @@ import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 })
 export class SidebarComponent implements OnInit {
   faChevronCircleRight = faChevronCircleRight;
-
+  optionMenu: string;
   //configuraciones del sidebar
   _modeNum: number = 1;
   _positionNum: number = 0;
@@ -26,21 +27,29 @@ export class SidebarComponent implements OnInit {
   _MODES: Array<string> = ['over', 'push', 'slide'];
   _POSITIONS: Array<string> = ['left', 'right', 'top', 'bottom'];
 
-  constructor(public aponedSidebarService: ToggleSidebarService) {}
-  
+  constructor(
+    public aponedSidebarService: ToggleSidebarService,
+    private loginService: LoginService
+  ) {}
+
   ngOnInit(): void {
-    if (window.innerWidth <= 900){
+    if (window.innerWidth <= 900) {
       this._modeNum = 0;
     }
+    //console.log(this.loginService.currentUser);
+    if (this.loginService.currentUser.role[0].name == 'admin') {
+      this.optionMenu = 'admin';
+    } else if (this.loginService.currentUser.role[0].name == 'user') {
+      this.optionMenu = 'user';
+    }
   }
-  
+
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     //console.log('Width: ' + event.target.innerWidth);
-    if(event.target.innerWidth< 900){
+    if (event.target.innerWidth < 900) {
       this._modeNum = 0;
-    }
-    else{
+    } else {
       this._modeNum = 1;
     }
   }

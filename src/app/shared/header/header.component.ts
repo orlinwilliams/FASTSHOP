@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login-register/login.service';
 import { ToggleSidebarService } from 'src/app/services/shared/toggle-sidebar.service';
 
@@ -12,7 +13,8 @@ export class HeaderComponent implements OnInit {
   currentUser: string = "usuario"
   constructor(
     private aponedSidebarService: ToggleSidebarService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) {}
   
 
@@ -27,5 +29,11 @@ export class HeaderComponent implements OnInit {
     this.openedSibebar = !this.openedSibebar;
     this.aponedSidebarService.opened = this.openedSibebar;
     console.log(this.aponedSidebarService.opened);
+  }
+  logout(){
+    if(confirm('Esta seguro de salir')){
+      this.loginService.logout();
+      this.router.navigate(['/']);
+    }  
   }
 }

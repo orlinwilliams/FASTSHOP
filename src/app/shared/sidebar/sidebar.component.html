@@ -16,7 +16,68 @@
   [autoFocus]="_autoFocus"
   [ariaLabel]="'My sidebar'"
   >
-    <div class="container">
+    <!-- Opciones de usuarios-->
+    <div class="container" *ngIf="optionMenu == 'user'">
+      <div class="row justify-content-between sidebar-nav" [routerLink]="['/admin-companies']">
+        <div class="col-9">
+          <label for="" [routerLink]="['/admin-companies']" >Home</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+      <div class="row justify-content-between sidebar-nav">
+        <div class="col-9">
+          <label for="" [routerLink]="['/admin-companies/pages']" [routerLinkActive]="['active-link']">Mi empresa</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+      <div class="row justify-content-between sidebar-nav">
+        <div class="col-9">
+          <label for="">Productos</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+      <div class="row justify-content-between sidebar-nav">
+        <div class="col-9">
+          <label for="">Categorias</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+      <div class="row justify-content-between sidebar-nav">
+        <div class="col-9">
+          <label for="">Configuraciones</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+      <div class="row justify-content-between sidebar-nav">
+        <div class="col-9">
+          <label for="">Componentes</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+      <div class="row justify-content-between sidebar-nav">
+        <div class="col-9">
+          <label for="">Archivos</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+    </div>
+
+    <!-- Opciones de daministrador -->
+    <div class="container" *ngIf="optionMenu == 'admin'">
       <div class="row justify-content-between">
         <div class="col-9">
           <label for="">Hola</label>

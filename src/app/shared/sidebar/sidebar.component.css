@@ -24,3 +24,16 @@ fa-icon {
   margin-right: 0;
   cursor: pointer;
 }
+.active-link{
+  color: white;
+}
+
+.sidebar-nav{
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.sidebar-nav:hover {
+  background: #585858;
+  color:white
+}
+

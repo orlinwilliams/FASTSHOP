@@ -7,8 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
   url: string = 'http://localhost:8888/login';
-  constructor(private httpClient: HttpClient) {}
   currentUser:any ={};
+  
+  constructor(private httpClient: HttpClient) {
+    this.currentUser = JSON.parse(localStorage.getItem('data')) ;
+  }
+  
   login(user: any): Observable<any> {
     return this.httpClient.post(`${this.url}`, user);
   }
@@ -17,8 +21,9 @@ export class LoginService {
     this.currentUser = data;
     localStorage.setItem('data', JSON.stringify(data))
   }
-  deleteCurrentUser ():void{
+  logout ():void{
     localStorage.removeItem('data');
     this.currentUser = {};
   }
+
 }
