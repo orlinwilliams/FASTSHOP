@@ -18,12 +18,32 @@ export class LoginService {
   }
   
   saveCurrentUser (data: any):void{
-    this.currentUser = data;
+    
     localStorage.setItem('data', JSON.stringify(data))
+    this.currentUser = data;
+    
   }
   logout ():void{
     localStorage.removeItem('data');
     this.currentUser = {};
+  }
+  isLoginUser():boolean{
+    if(localStorage.getItem('data')){
+      let user = JSON.parse(localStorage.getItem('data'));
+      if(user.role[0].name == 'user'){
+        return true;
+      }
+    }
+    return false;
+  }
+  isLoginAdmin():boolean{
+    if(localStorage.getItem('data')){
+      let user = JSON.parse(localStorage.getItem('data'));
+      if(user.role[0].name == 'admin'){
+        return true;
+      }
+    }
+    return false;
   }
 
 }

@@ -22,6 +22,9 @@ export class HeaderComponent implements OnInit {
     if (this.loginService.currentUser.username) {
       this.currentUser = this.loginService.currentUser.username;
     }
+    else{
+      this.currentUser = 'usuario'
+    }
   }
 
   //Funcion cambia de estado el sidebar
