@@ -11,6 +11,8 @@ import { ToastService } from 'src/app/services/shared/toast.service';
 })
 export class PricingComponent implements OnInit {
   pricing: any = [];
+  idPrice: string = '';
+  buttonControl: string = 'newPrice';
   formPrecing = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(3)]),
     description: new FormControl('', [
@@ -29,6 +31,10 @@ export class PricingComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.allPricing();
+  }
+
+  allPricing() {
     this.pricingService.getPricing().subscribe(
       (resp: any) => {
         if (resp.status) {
@@ -39,7 +45,6 @@ export class PricingComponent implements OnInit {
       (error) => console.log(error)
     );
   }
-
   openModalNewPrecing(modal) {
     this.modalNewPrecing.open(modal);
   }
@@ -54,12 +59,73 @@ export class PricingComponent implements OnInit {
             message: 'Precio agregado con éxito',
           };
           this.modalNewPrecing.dismissAll();
-        }
-        else{
-
+        } else {
         }
       },
       (error) => {}
+    );
+  }
+  openModalUpdate(modal, id) {
+    this.idPrice = id;
+    this.modalNewPrecing.open(modal);
+    this.buttonControl = 'editPrice';
+    this.pricingService.getPrice(id).subscribe(
+      (res: any) => {
+        if (res.status) {
+          this.formPrecing.setValue({
+            title: res.result.title,
+            description: res.result.description,
+            price: res.result.price,
+            maxQuantityProducts: res.result.maxQuantityProducts,
+            maxQuantityPages: res.result.maxQuantityPages,
+          });
+        }
+      },
+      (error) => console.log(error)
+    );
+  }
+  updatePricing() {
+    this.pricingService
+      .updatePricing(this.idPrice, this.formPrecing.value)
+      .subscribe(
+        (res: any) => {
+          this.allPricing();
+
+          this.formPrecing.setValue({
+            title: '',
+            description: '',
+            price: '',
+            maxQuantityProducts: '',
+            maxQuantityPages: '',
+          });
+          this.buttonControl = 'newPrice';
+          this.modalNewPrecing.dismissAll();
+        },
+        (error) => console.log(error)
+      );
+  }
+  opendeModalDelete(modal, id) {
+    this.modalNewPrecing.open(modal, { size: 'sm', centered: true });
+    this.idPrice = id;
+    console.log(this.idPrice);
+  }
+
+  deletePrice() {
+    this.pricingService.deletePrice(this.idPrice).subscribe(
+      (res:any) => {
+        if(res.status){
+          this.allPricing();
+          this.modalNewPrecing.dismissAll();
+          this.toastService.dataToast = {
+            showToast: true,
+            classToast: 'success',
+            message: 'Precio Eliminado con éxito',
+          };
+
+        }
+        
+      },
+      (error) =>console.log(error)
     );
   }
 }
