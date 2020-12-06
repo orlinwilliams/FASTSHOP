@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastService } from '../services/shared/toast.service';
 
 @Component({
   selector: 'app-admins',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public toastService:ToastService) { }
 
   ngOnInit(): void {
   }
-
+  // showToast(event){
+  //   console.log(event);
+  // }
 }

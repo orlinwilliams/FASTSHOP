@@ -8,17 +8,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //COMPONENTES
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
+import { ToastComponent } from './toast/toast.component';
 
 
 @NgModule({
-  declarations: [SidebarComponent,HeaderComponent],
+  declarations: [SidebarComponent,HeaderComponent, ToastComponent],
   imports: [
     CommonModule,
+    NgbModule,
     SidebarModule.forRoot(),
     SharedRoutingModule,
-    NgbModule,
     FontAwesomeModule
   ],
-  exports:[SidebarComponent,HeaderComponent]
+  exports:[SidebarComponent,HeaderComponent,ToastComponent]
 })
 export class SharedModule { }

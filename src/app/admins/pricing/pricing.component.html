@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="row mb-2">
-    <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+    <div class="col-lg-4 col-md-6 col-sm-6 col-6">
       <button
         class="btn btn-warning"
         (click)="openModalNewPrecing(modalNewPrecing)"
@@ -16,77 +16,32 @@
   </div>
   <!-- Tarjetas Precios -->
   <div class="row justify-content-center mb-2">
-    <div class="col-lg-6 col-md-8 col-sm-10 col-12">
+    <div
+      class="col-lg-6 col-md-8 col-sm-10 col-12"
+      *ngFor="let price of pricing"
+    >
       <div class="card">
         <div class="card-body">
           <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-3 col-3">
               <div class="row justify-content-center align-items-center">
-                <span class="price">20</span><span>$</span>
+                <span class="price">{{ price.price }}</span
+                ><span>$</span>
                 <p>Mensual</p>
               </div>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-              <h5 class="card-title"><span>Emprendedor</span></h5>
-              <span>Descripción:</span>
+              <h5 class="card-title">
+                <span>{{ price.title }}</span>
+              </h5>
+              <p><span>Descripción:</span> {{ price.description }}</p>
               <p>
-                Todas las herramientas básicas para poder crear tu tienda en
-                línea.
+                Cantidad de productos:
+                <span>{{ price.maxQuantityProducts }}</span>
               </p>
-              <p>Cantidad de productos: <span>50</span></p>
-              <p>Cantidad de páginas <span>5</span></p>
-              <button class="btn btn-warning btn-sm">Editar</button>
-              <button class="btn btn-danger btn-sm">Eliminar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-md-8 col-sm-10 col-12">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-              <div class="row justify-content-center align-items-center">
-                <span class="price">45</span><span>$</span>
-                <p>Mensual</p>
-              </div>
-            </div>
-            <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-              <h5 class="card-title"><span>Negocio</span></h5>
-              <span>Descripción:</span>
               <p>
-                Soluciones avanzadas de comercio electrónico para expandir tu
-                negocio.
+                Cantidad de páginas <span>{{ price.maxQuantityPages }}</span>
               </p>
-              <p>Cantidad de productos: <span>100</span></p>
-              <p>Cantidad de páginas: <span>12</span></p>
-              <button class="btn btn-warning btn-sm">Editar</button>
-              <button class="btn btn-danger btn-sm">Eliminar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-md-8 col-sm-10 col-12">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-3">
-              <div class="row justify-content-center align-items-center">
-                <span class="price">90</span><span>$</span>
-                <p>Mensual</p>
-              </div>
-            </div>
-            <div class="col-lg-9 col-md-9 col-sm-9 col-9">
-              <h5 class="card-title"><span>Pro</span></h5>
-              <span>Descripción:</span>
-              <p>
-                Todo lo que necesitas para vender en línea, cuenta con todas las
-                herramientas sin limitaciones
-              </p>
-              <p>Cantidad de productos: <span>1Ilimitados</span></p>
-              <p>Cantidad de páginas: <span>20</span></p>
               <button class="btn btn-warning btn-sm">Editar</button>
               <button class="btn btn-danger btn-sm">Eliminar</button>
             </div>
@@ -110,79 +65,75 @@
     </button>
   </div>
   <div class="modal-body">
-    <div class="card">
-      <div class="card-body">
-        <form
-          [formGroup]="formPrecing"
-          class="needs-validation"
-          [ngClass]="{
-            'was-validated': formPrecing.valid
-          }"
-        >
-          <div class="form-group">
-            <label for="titulo">Título</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Deluxe.."
-              id="titulo"
-              required
-              formControlName="title"
-            />
-          </div>
-          <div class="form-group">
-            <label for="description">Descripción</label>
-            <textarea
-              class="form-control"
-              name=""
-              id="description"
-              rows="2"
-              placeholder="Plan para emrpesas con descuento.."
-              formControlName="description"
-            ></textarea>
-          </div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">$</span>
-            </div>
-            <input
-              type="number"
-              class="form-control"
-              aria-label="Amount (to the nearest dollar)"
-              formControlName ="price"
-            />
-          </div>
-          <div class="form-group">
-            <label for="maxQuantityProduct">Cantidad de productos</label>
-            <input
-              type="number"
-              class="form-control"
-              id="maxQuantityProduct"
-              required
-              formControlName="maxQuantityProduct"
-            />
-          </div>
-          <div class="form-group">
-            <label for="maxQuantityPages">Cantidad de páginas</label>
-            <input
-              type="number"
-              class="form-control"
-              id="maxQuantityPages"
-              required
-              formControlName="maxQuantityPages"
-            />
-          </div>
-          <div class="form-group">
-            <button
-              [disabled]="!formPrecing.valid"
-              class="btn btn-warning btn-sm"
-              (click)="savePrecing()"
-            >
-              Guardar
-            </button>
-          </div>
-        </form>
+    <form
+      [formGroup]="formPrecing"
+      class="needs-validation"
+      [ngClass]="{
+        'was-validated': formPrecing.valid
+      }"
+    >
+      <div class="form-group">
+        <label for="titulo">Título</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Deluxe.."
+          id="titulo"
+          required
+          formControlName="title"
+        />
       </div>
-    </div>
+      <div class="form-group">
+        <label for="description">Descripción</label>
+        <textarea
+          class="form-control"
+          name=""
+          id="description"
+          rows="2"
+          placeholder="Plan para emrpesas con descuento.."
+          formControlName="description"
+        ></textarea>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">$</span>
+        </div>
+        <input
+          type="number"
+          class="form-control"
+          aria-label="Amount (to the nearest dollar)"
+          formControlName="price"
+        />
+      </div>
+      <div class="form-group">
+        <label for="maxQuantityProduct">Cantidad de productos</label>
+        <input
+          type="number"
+          class="form-control"
+          id="maxQuantityProducts"
+          required
+          formControlName="maxQuantityProducts"
+        />
+      </div>
+      <div class="form-group">
+        <label for="maxQuantityPages">Cantidad de páginas</label>
+        <input
+          type="number"
+          class="form-control"
+          id="maxQuantityPages"
+          required
+          formControlName="maxQuantityPages"
+        />
+      </div>
+      <div class="form-group">
+        <button
+          [disabled]="!formPrecing.valid"
+          class="btn btn-warning btn-sm"
+          (click)="savePrecing()"
+        >
+          Guardar
+        </button>
+      </div>
+    </form>
   </div>
 </ng-template>

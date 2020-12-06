@@ -65,4 +65,7 @@ export class LoginComponent implements OnInit {
       (error) => console.log('error en peticion', error)
     )
   }
+  modalPrueba(content){
+    this.modalNewUser.open(content,{}); 
+  }
 }

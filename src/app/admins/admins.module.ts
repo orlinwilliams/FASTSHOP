@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminsRoutingModule } from './admins-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //COMPONETENES
 import { AdminsComponent } from './admins.component';
@@ -11,7 +12,8 @@ import { CompaniesComponent } from './companies/companies.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { UsersComponent } from './users/users.component';
 import { ThemesComponent } from './themes/themes.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AdminsComponent,
@@ -19,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PricingComponent,
     UsersComponent,
     ThemesComponent,
+    
   ],
   imports: [CommonModule, SharedModule, AdminsRoutingModule,NgbModule, FormsModule,ReactiveFormsModule],
 })

@@ -36,4 +36,8 @@ h3{
 }
 .container-fluid{
   margin-bottom: 5vh;
+}
+.btn-warning{
+  background-color: #F1D048;
+  border-color: #F1D048;
 } 

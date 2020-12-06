@@ -19,9 +19,9 @@ export class SidebarComponent implements OnInit {
   _closeOnClickBackdrop: boolean = false;
   _showBackdrop: boolean = false;
   _animate: boolean = true;
-  _trapFocus: boolean = true;
-  _autoFocus: boolean = true;
-  _keyClose: boolean = false;
+  _trapFocus: boolean = false;//
+  _autoFocus: boolean = true;//
+  _keyClose: boolean = true;
   _autoCollapseHeight: number = null;
   _autoCollapseWidth: number = null;
   _MODES: Array<string> = ['over', 'push', 'slide'];
@@ -53,4 +53,7 @@ export class SidebarComponent implements OnInit {
       this._modeNum = 1;
     }
   }
+  // showToast($event){
+  //   console.log($event)
+  // }
 }

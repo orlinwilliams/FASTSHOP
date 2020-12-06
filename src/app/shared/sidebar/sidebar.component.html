@@ -1,40 +1,51 @@
 <ng-sidebar-container>
   <ng-sidebar
-  [(opened)]="aponedSidebarService.opened"
-  [mode]="_MODES[_modeNum]"
-  [keyClose]="_keyClose"
-  [position]="_POSITIONS[_positionNum]"
-  [dock]="_dock"
-  [dockedSize]="'50px'"
-  [autoCollapseHeight]="_autoCollapseHeight"
-  [autoCollapseWidth]="_autoCollapseWidth"
-  [closeOnClickOutside]="_closeOnClickOutside"
-  [closeOnClickBackdrop]="_closeOnClickBackdrop"
-  [showBackdrop]="_showBackdrop"
-  [animate]="_animate"
-  [trapFocus]="_trapFocus"
-  [autoFocus]="_autoFocus"
-  [ariaLabel]="'My sidebar'"
+    [(opened)]="aponedSidebarService.opened"
+    [mode]="_MODES[_modeNum]"
+    [keyClose]="_keyClose"
+    [position]="_POSITIONS[_positionNum]"
+    [dock]="_dock"
+    [dockedSize]="'50px'"
+    [autoCollapseHeight]="_autoCollapseHeight"
+    [autoCollapseWidth]="_autoCollapseWidth"
+    [closeOnClickOutside]="_closeOnClickOutside"
+    [closeOnClickBackdrop]="_closeOnClickBackdrop"
+    [showBackdrop]="_showBackdrop"
+    [animate]="_animate"
+    [trapFocus]="_trapFocus"
+    [autoFocus]="_autoFocus"
+    [ariaLabel]="'My sidebar'"
   >
     <!-- Opciones de usuarios-->
     <div class="container" *ngIf="optionMenu == 'user'">
-      <div class="row justify-content-between sidebar-nav" [routerLink]="['/admin-companies']">
+      <div
+        class="row justify-content-between sidebar-nav"
+        [routerLink]="['/admin-companies']"
+      >
         <div class="col-9">
-          <label for="" [routerLink]="['/admin-companies']" >Home</label>
+          <label>Home</label>
         </div>
         <div class="col-3 iconArrow">
           <fa-icon [icon]="faChevronCircleRight"></fa-icon>
         </div>
       </div>
-      <div class="row justify-content-between sidebar-nav">
+      <div
+        class="row justify-content-between sidebar-nav"
+        [routerLink]="['/admin-companies/pages']"
+        [routerLinkActive]="['active-link']"
+      >
         <div class="col-9">
-          <label for="" [routerLink]="['/admin-companies/pages']" [routerLinkActive]="['active-link']">Mi empresa</label>
+          <label>Mi empresa</label>
         </div>
         <div class="col-3 iconArrow">
           <fa-icon [icon]="faChevronCircleRight"></fa-icon>
         </div>
       </div>
-      <div class="row justify-content-between sidebar-nav">
+      <div
+        class="row justify-content-between sidebar-nav"
+        [routerLink]="['/admin-companies/products']"
+        [routerLinkActive]="['active-link']"
+      >
         <div class="col-9">
           <label for="">Productos</label>
         </div>
@@ -42,7 +53,11 @@
           <fa-icon [icon]="faChevronCircleRight"></fa-icon>
         </div>
       </div>
-      <div class="row justify-content-between sidebar-nav">
+      <div
+        class="row justify-content-between sidebar-nav"
+        [routerLink]="['/admin-companies/categories']"
+        [routerLinkActive]="['active-link']"
+      >
         <div class="col-9">
           <label for="">Categorias</label>
         </div>
@@ -50,23 +65,35 @@
           <fa-icon [icon]="faChevronCircleRight"></fa-icon>
         </div>
       </div>
-      <div class="row justify-content-between sidebar-nav">
+      <div
+        class="row justify-content-between sidebar-nav"
+        [routerLink]="['/admin-companies/settings']"
+        [routerLinkActive]="['active-link']"
+      >
         <div class="col-9">
-          <label for="">Configuraciones</label>
+          <label>Configuraciones</label>
         </div>
         <div class="col-3 iconArrow">
           <fa-icon [icon]="faChevronCircleRight"></fa-icon>
         </div>
       </div>
-      <div class="row justify-content-between sidebar-nav">
+      <div
+        class="row justify-content-between sidebar-nav"
+        [routerLink]="['/admin-companies/components']"
+        [routerLinkActive]="['active-link']"
+      >
         <div class="col-9">
-          <label for="">Componentes</label>
+          <label>Componentes</label>
         </div>
         <div class="col-3 iconArrow">
           <fa-icon [icon]="faChevronCircleRight"></fa-icon>
         </div>
       </div>
-      <div class="row justify-content-between sidebar-nav">
+      <div
+        class="row justify-content-between sidebar-nav"
+        [routerLink]="['/admin-companies/files']"
+        [routerLinkActive]="['active-link']"
+      >
         <div class="col-9">
           <label for="">Archivos</label>
         </div>
@@ -78,25 +105,48 @@
 
     <!-- Opciones de daministrador -->
     <div class="container" *ngIf="optionMenu == 'admin'">
-      <div class="row justify-content-between">
+      <div
+        class="row justify-content-between sidebar-nav"
+        [routerLink]="['/admin']"
+      >
         <div class="col-9">
-          <label for="">Hola</label>
+          <label for="">Empresas</label>
         </div>
         <div class="col-3 iconArrow">
           <fa-icon [icon]="faChevronCircleRight"></fa-icon>
         </div>
       </div>
-      <div class="row justify-content-between">
+      <div
+        class="row justify-content-between sidebar-nav"
+        [routerLink]="['/admin/pricing']"
+        [routerLinkActive]="['active-link']"
+      >
         <div class="col-9">
-          <label for="">Hola</label>
+          <label for="">Planes</label>
         </div>
         <div class="col-3 iconArrow">
           <fa-icon [icon]="faChevronCircleRight"></fa-icon>
         </div>
       </div>
-      <div class="row justify-content-between">
+      <div
+        class="row justify-content-between sidebar-nav"
+        [routerLink]="['/admin/themes']"
+        [routerLinkActive]="['active-link']"
+      >
         <div class="col-9">
-          <label for="">Hola</label>
+          <label for="">Temas</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+      <div
+        class="row justify-content-between sidebar-nav"
+        [routerLink]="['/admin/users']"
+        [routerLinkActive]="['active-link']"
+      >
+        <div class="col-9">
+          <label for="">Usuarios</label>
         </div>
         <div class="col-3 iconArrow">
           <fa-icon [icon]="faChevronCircleRight"></fa-icon>
@@ -104,9 +154,9 @@
       </div>
     </div>
   </ng-sidebar>
-  
+
   <!-- Page content -->
   <div ng-sidebar-content>
-    <router-outlet></router-outlet>    
+    <router-outlet> </router-outlet>
   </div>
 </ng-sidebar-container>

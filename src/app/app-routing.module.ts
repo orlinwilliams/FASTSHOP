@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import {LoginUserGuard} from '../app/guards/login-user.guard'
+import {LoginUserGuard} from '../app/guards/login-user.guard';
+import {LoginAdminGuard} from '../app/guards/login-admin.guard'
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () =>
       import('./admins/admins.module').then((m) => m.AdminsModule),
+      canActivate:[LoginAdminGuard]
   },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' },
