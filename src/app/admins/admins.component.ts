@@ -12,7 +12,5 @@ export class AdminsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // showToast(event){
-  //   console.log(event);
-  // }
+  
 }

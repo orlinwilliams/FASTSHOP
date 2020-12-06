@@ -7,7 +7,8 @@
           [formGroup]="formLogin"
           class="needs-validation"
           [ngClass]="{
-            'was-validated': formLogin.valid}"
+            'was-validated': formLogin.valid
+          }"
           novalidate
         >
           <div class="form-group">
@@ -34,7 +35,12 @@
           </div>
 
           <br />
-          <small id="emailHelp"  *ngIf="errorPasswordEmail" class="form-text text-muted">contraseña o correo incorrecto</small>
+          <small
+            id="emailHelp"
+            *ngIf="errorPasswordEmail"
+            class="form-text text-muted"
+            >contraseña o correo incorrecto</small
+          >
           <br />
           <a
             style="cursor: pointer; color: #007bff"
@@ -50,7 +56,6 @@
           >
             Ingresar
           </button>
-          <button (click)="modalPrueba(content)">Modal</button>
         </form>
       </div>
     </div>
@@ -60,7 +65,12 @@
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -68,11 +78,17 @@
     <form>
       <div class="form-group">
         <label for="dateOfBirth">Date of birth</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" />
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Save
+    </button>
   </div>
 </ng-template>

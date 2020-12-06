@@ -9,7 +9,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 export class ToastComponent implements OnInit, OnChanges {
   @Input() dataToast:any;
   showToast: boolean = false;
-  message: string = '¿HOLA';
+  message: string = '';
   classToast: string = 'success';
   constructor() {}
 
@@ -19,6 +19,7 @@ export class ToastComponent implements OnInit, OnChanges {
     this.showToast = showToast;
     this.classToast = classToast;
     this.message = message;
+    console.log(this.dataToast);
     
   }
 }
