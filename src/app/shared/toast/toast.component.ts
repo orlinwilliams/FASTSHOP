@@ -19,7 +19,7 @@ export class ToastComponent implements OnInit, OnChanges {
     this.showToast = showToast;
     this.classToast = classToast;
     this.message = message;
-    console.log(this.dataToast);
+    
     
   }
 }

@@ -44,12 +44,22 @@ export class PricingComponent implements OnInit {
     this.modalNewPrecing.open(modal);
   }
   savePrecing() {
-    //this.toastService.
-    this.toastService.dataToast = {
-      showToast: true,
-      classToast: 'success',
-      message: 'Usuario agregado con exito',
-    };
-    this.modalNewPrecing.dismissAll();
+    this.pricingService.setPricing(this.formPrecing.value).subscribe(
+      (res: any) => {
+        if (res.status) {
+          this.pricing.push(res.result);
+          this.toastService.dataToast = {
+            showToast: true,
+            classToast: 'success',
+            message: 'Precio agregado con éxito',
+          };
+          this.modalNewPrecing.dismissAll();
+        }
+        else{
+
+        }
+      },
+      (error) => {}
+    );
   }
 }

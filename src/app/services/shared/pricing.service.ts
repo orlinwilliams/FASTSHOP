@@ -13,4 +13,7 @@ export class PricingService {
   getPricing(): Observable<any> {
     return this.httpClient.get(this.url);
   }
+  setPricing(price):Observable<any>{
+    return this.httpClient.post(this.url, price)
+  }
 }
