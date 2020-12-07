@@ -12,6 +12,8 @@ import { CompaniesComponent } from './companies/companies.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { UsersComponent } from './users/users.component';
 import { ThemesComponent } from './themes/themes.component';
+import { UsersCompaniesComponent } from './users/users-companies/users-companies.component';
+import { UsersClientsComponent } from './users/users-clients/users-clients.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { ThemesComponent } from './themes/themes.component';
     PricingComponent,
     UsersComponent,
     ThemesComponent,
+    UsersCompaniesComponent,
+    UsersClientsComponent,
     
   ],
   imports: [CommonModule, SharedModule, AdminsRoutingModule,NgbModule, FormsModule,ReactiveFormsModule],

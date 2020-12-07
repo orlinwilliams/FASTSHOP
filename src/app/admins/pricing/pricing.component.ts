@@ -46,6 +46,14 @@ export class PricingComponent implements OnInit {
     );
   }
   openModalNewPrecing(modal) {
+    this.buttonControl = 'newPrice';
+    this.formPrecing.setValue({
+      title: '',
+      description: '',
+      price: '',
+      maxQuantityProducts: '',
+      maxQuantityPages: '',
+    });
     this.modalNewPrecing.open(modal);
   }
   savePrecing() {
@@ -91,14 +99,6 @@ export class PricingComponent implements OnInit {
         (res: any) => {
           this.allPricing();
 
-          this.formPrecing.setValue({
-            title: '',
-            description: '',
-            price: '',
-            maxQuantityProducts: '',
-            maxQuantityPages: '',
-          });
-          this.buttonControl = 'newPrice';
           this.modalNewPrecing.dismissAll();
         },
         (error) => console.log(error)
@@ -112,8 +112,8 @@ export class PricingComponent implements OnInit {
 
   deletePrice() {
     this.pricingService.deletePrice(this.idPrice).subscribe(
-      (res:any) => {
-        if(res.status){
+      (res: any) => {
+        if (res.status) {
           this.allPricing();
           this.modalNewPrecing.dismissAll();
           this.toastService.dataToast = {
@@ -121,11 +121,9 @@ export class PricingComponent implements OnInit {
             classToast: 'success',
             message: 'Precio Eliminado con éxito',
           };
-
         }
-        
       },
-      (error) =>console.log(error)
+      (error) => console.log(error)
     );
   }
 }

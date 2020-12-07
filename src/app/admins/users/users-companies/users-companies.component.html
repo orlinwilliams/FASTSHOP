@@ -1,0 +1,139 @@
+<div class="container-fluid">
+  <div class="row text-center">
+    <div class="col-12 col-lg-12">
+      <h3>Crear compañias</h3>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <!-- Nuevo cliente -->
+    <div class="col-lg-5 col-md-5-col-sm-5 col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-tittle text-center">Nueva Compañia</h5>
+          <form
+            [formGroup]="formNewCompany"
+            class="needs-validation"
+            [ngClass]="{ 'was-validated': formNewCompany.valid }"
+          >
+            <div class="form-group">
+              <label for="userName">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="userName"
+                required
+                placeholder="Juan .."
+                formControlName="username"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Correo</label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput1"
+                required
+                placeholder="usuario@correo.com"
+                formControlName="email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input
+                (keyup)="passwordValidator()"
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                formControlName="password"
+              />
+              <small
+                id="passwordValidator"
+                *ngIf="showMessageErrorPassword"
+                class="form-text text-muted"
+                >La contraseña debe de contener al menos 4 caracteres</small
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5 col-md-5-col-sm-5 col-12">
+      <div class="card">
+        <div class="card-body">
+          <form
+            [formGroup]="formNewCompany"
+            class="needs-validation"
+            [ngClass]="{
+              'was-validated': formNewCompany.valid
+            }"
+          >
+            <div class="form-group">
+              <label for="nuevaTienda">Nombre Tienda</label>
+              <input
+                formControlName="nameCompany"
+                type="text"
+                class="form-control"
+                id="nuevaTienda"
+                required
+                placeholder="Inversiones Pancho"
+              />
+            </div>
+            <div class="form-group">
+              <label for="pais">País</label>
+              <select class="form-control" id="pais" formControlName="country">
+                <option value="Honduras">Honduras</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="EEUU">EEUU</option>
+                <option value="EEUU">EL Salvador</option>
+                <option value="Mexico">México</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="direccion">Dirección</label>
+              <input
+                formControlName="address"
+                type="text"
+                class="form-control"
+                id="direccion"
+                required
+                placeholder="Colonia las ministas.."
+              />
+            </div>
+            <div class="form-group">
+              <label for="categoryCompanySelect">Categoría empresa</label>
+              <select
+                class="form-control"
+                id="categoryCompanySelect"
+                formControlName="categoryCompany"
+              >
+                <option>Indumentaria</option>
+                <option>Computadoras</option>
+                <option>Accesorios para celular</option>
+                <option>Libros</option>
+                <option>Belleza</option>
+                <option>Electrónica</option>
+                <option>Servicios</option>
+                <option value="virtualServices">Servicios virtuales</option>
+                <option>Venta en general</option>
+                <option >Aún no decido</option>
+                <option>Otros</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button
+                class="btn btn-warning"
+                [disabled]="!formNewCompany.value"
+                (click)="savedNewCompany()"
+              >
+                Guardar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

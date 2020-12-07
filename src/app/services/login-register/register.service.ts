@@ -16,4 +16,7 @@ export class RegisterService {
   saveUser(user:any): Observable<any> {
     return this.httpClient.post(`${this.url}/user`, user);
   }
+  saveAdmin(admin:any): Observable<any> {
+    return this.httpClient.post(`${this.url}/admin`, admin);
+  }
 }

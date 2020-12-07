@@ -11,6 +11,7 @@ import { LoginService } from 'src/app/services/login-register/login.service';
 export class SidebarComponent implements OnInit {
   faChevronCircleRight = faChevronCircleRight;
   optionMenu: string;
+  optionUser:boolean = false;
   //configuraciones del sidebar
   _modeNum: number = 1;
   _positionNum: number = 0;
@@ -53,7 +54,7 @@ export class SidebarComponent implements OnInit {
       this._modeNum = 1;
     }
   }
-  // showToast($event){
-  //   console.log($event)
-  // }
+  showOptions(){
+    this.optionUser = ! this.optionUser
+  }
 }

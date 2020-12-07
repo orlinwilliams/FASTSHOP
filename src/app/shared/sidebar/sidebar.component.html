@@ -144,9 +144,34 @@
         class="row justify-content-between sidebar-nav"
         [routerLink]="['/admin/users']"
         [routerLinkActive]="['active-link']"
+        (click) ="showOptions()"
       >
         <div class="col-9">
           <label for="">Usuarios</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+      <div
+        class="row justify-content-between sidebar-nav"
+        *ngIf="optionUser"
+        
+      >
+        <div class="col-9" [routerLink] = "['/admin/users/companies']">
+          <label class="ml-2" >Empresas</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+      <div
+        class="row justify-content-between sidebar-nav"
+        *ngIf="optionUser"
+        [routerLink] = "['/admin/users/clients']"
+      >
+        <div class="col-9" >
+          <label class="ml-2" >Clientes</label>
         </div>
         <div class="col-3 iconArrow">
           <fa-icon [icon]="faChevronCircleRight"></fa-icon>

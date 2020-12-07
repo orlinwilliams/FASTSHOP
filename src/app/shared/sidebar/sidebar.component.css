@@ -36,4 +36,10 @@ fa-icon {
   background: #585858;
   color:white
 }
-
+.option-user{
+  margin-left: 2px;
+  
+}
+.option-user label{
+  font-size: 16px;
+}

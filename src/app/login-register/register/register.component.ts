@@ -53,13 +53,13 @@ export class RegisterComponent implements OnInit {
       Validators.maxLength(50),
       Validators.minLength(3),
     ]),
-    country: new FormControl('', [Validators.required]),
+    country: new FormControl('Honduras', [Validators.required]),
     address: new FormControl('', [
       Validators.required,
       Validators.maxLength(60),
       Validators.minLength(5),
     ]),
-    categoryCompany: new FormControl('', [Validators.required]),
+    categoryCompany: new FormControl('Elegir', [Validators.required]),
     //choosePackage: new FormControl('', [Validators.required]),
   });
 

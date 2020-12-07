@@ -5,6 +5,8 @@ import { AdminsComponent } from './admins.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { ThemesComponent } from './themes/themes.component';
+import { UsersClientsComponent } from './users/users-clients/users-clients.component';
+import { UsersCompaniesComponent } from './users/users-companies/users-companies.component';
 import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
@@ -16,6 +18,8 @@ const routes: Routes = [
       { path: 'pricing', component: PricingComponent },
       { path: 'users', component: UsersComponent },
       { path: 'themes', component: ThemesComponent },
+      { path: 'users/companies', component: UsersCompaniesComponent },
+      { path: 'users/clients', component: UsersClientsComponent },
     ],
   },
 ];
