@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AdminsRoutingModule } from './admins-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 //COMPONETENES
 import { AdminsComponent } from './admins.component';
 import { SharedModule } from '../shared/shared.module';
@@ -25,8 +25,19 @@ import { UsersClientsComponent } from './users/users-clients/users-clients.compo
     ThemesComponent,
     UsersCompaniesComponent,
     UsersClientsComponent,
+  ],
+  imports: [
+    CommonModule,
+    SharedModule,
+    AdminsRoutingModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CodemirrorModule
     
   ],
-  imports: [CommonModule, SharedModule, AdminsRoutingModule,NgbModule, FormsModule,ReactiveFormsModule],
+  providers: [
+    
+  ],
 })
 export class AdminsModule {}

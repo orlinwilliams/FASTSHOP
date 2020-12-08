@@ -9,7 +9,7 @@ import { ToastService } from '../services/shared/toast.service';
 export class AdminsComponent implements OnInit {
 
   constructor(public toastService:ToastService) { }
-
+  
   ngOnInit(): void {
   }
   

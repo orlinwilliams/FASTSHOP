@@ -10,22 +10,19 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-
-
-
-
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 
 @NgModule({
-  declarations: [AppComponent, LandingPageComponent,NotFoundComponent,],
+  declarations: [AppComponent, LandingPageComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     NgbModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    CodemirrorModule,
   ],
-  
+
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -17,4 +17,7 @@ export class UsersService {
   updateAdmin(id,admin):Observable<any>{
     return this.httpClient.put(`${this.url}/admin/${id}`,admin);
   }
+  getClients():Observable<any>{
+    return this.httpClient.get(`${this.url}/client`);
+  }
 }

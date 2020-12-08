@@ -10,13 +10,13 @@ export class RegisterService {
   constructor(private httpClient: HttpClient) {}
 
   saveClient(client: any): Observable<any> {
-    return this.httpClient.post(`${this.url}/client`, client);
+    return this.httpClient.post(`${this.url}client`, client);
   }
   
   saveUser(user:any): Observable<any> {
-    return this.httpClient.post(`${this.url}/user`, user);
+    return this.httpClient.post(`${this.url}user`, user);
   }
   saveAdmin(admin:any): Observable<any> {
-    return this.httpClient.post(`${this.url}/admin`, admin);
+    return this.httpClient.post(`${this.url}admin`, admin);
   }
 }

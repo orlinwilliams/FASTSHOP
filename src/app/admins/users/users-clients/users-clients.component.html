@@ -19,24 +19,15 @@
               <tr>
                 <th scope="col">Nombre Usuario</th>
                 <th scope="col">Correo</th>
-                <th scope="col">Opción</th>
-                <th scope="col">Opción</th>
+                <th scope="col">Fecha creación</th>
+                
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>lito</td>
-                <td>correo@correo.com</td>
-                
-                <td><button class="btn btn-warning btn-sm">Editar</button></td>
-                <td><button class="btn btn-danger btn-sm">Bloquear</button></td>
-              </tr>
-              <tr>
-                <td>lito</td>
-                <td>pedro@gmail.com</td>
-                
-                <td><button class="btn btn-warning btn-sm">Editar</button></td>
-                <td><button class="btn btn-danger btn-sm">Bloquear</button></td>
+              <tr *ngFor="let client of clients">
+                <td>{{client.username}}</td>
+                <td>{{client.email}}</td>
+                <td>{{client.createdAt.substring(0,10)}}</td>
               </tr>
             </tbody>
           </table>
@@ -47,7 +38,7 @@
     <div class="col-lg-4 col-md-4-col-sm-4 col-12">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-tittle text-center">Nuevo usuario</h5>
+          <h5 class="card-tittle text-center">Nuevo Cliente</h5>
           <form
             [formGroup]="formNewClient"
             class="needs-validation"
