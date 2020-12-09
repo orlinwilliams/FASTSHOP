@@ -12,6 +12,7 @@ export class SidebarComponent implements OnInit {
   faChevronCircleRight = faChevronCircleRight;
   optionMenu: string;
   optionUser:boolean = false;
+  optionTheme:boolean = false;
   //configuraciones del sidebar
   _modeNum: number = 1;
   _positionNum: number = 0;
@@ -56,5 +57,8 @@ export class SidebarComponent implements OnInit {
   }
   showOptions(){
     this.optionUser = ! this.optionUser
+  }
+  optionsThemes(){
+    this.optionTheme = ! this.optionTheme;
   }
 }

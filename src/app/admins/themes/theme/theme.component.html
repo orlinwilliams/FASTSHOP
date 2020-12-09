@@ -1,0 +1,92 @@
+<div class="container-fluid">
+  <div class="row text-center">
+    <div class="col-12">
+      <h3>Administración de temas</h3>
+      <p>
+        Crea un nuevo tema, recuerde que debe 
+        definir la hoja de estilos y los efectos en Javascript en caso de que el tema los necesite, 
+        tambien puede añadir imágenes relacionadas al tema. 
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-5 col-md-4 col-sm-6 col-8">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-tittle text-center">Nuevo tema</h5>
+          <form [formGroup]="formTheme" >
+            <div class="form-group">
+              <label for="titulo">Título</label>
+              <input
+                type="text"
+                class="form-control"
+                id="titulo"
+                name="titulo"
+                placeholder="Dark.."
+                formControlName = "title"
+              />
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <textarea
+                class="form-control"
+                name="description"
+                id=""
+                rows="2"
+                placeholder="Tema para tiendas de ropa.."
+                formControlName = "description"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-tittle text-center">Agregar imágenes del tema</h5>
+          <ngx-dropzone (change)="onSelect($event)" class="custom-dropzone">
+            <ngx-dropzone-label><strong>+</strong> Imagen</ngx-dropzone-label>
+            <ngx-dropzone-image-preview
+              ngProjectAs="ngx-dropzone-preview"
+              *ngFor="let f of files"
+              [file]="f"
+              [removable]="true"
+              (removed)="onRemove(f)"
+              [accept]="'image/*'"
+            >
+              <ngx-dropzone-label
+                >{{ f.name }} ({{ f.type }})</ngx-dropzone-label
+              >
+            </ngx-dropzone-image-preview>
+          </ngx-dropzone>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7 col-12 col-md-8 col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-tittle text-center">Css</h5>
+          <ngx-codemirror
+            #codemirrorCss
+            [options]="codeMirrorOptionsCss"
+            [(ngModel)]="contentCss"
+            (ngModelChange)="setEditorContentCss($event)"
+          >
+          </ngx-codemirror>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-tittle text-center">Javascript</h5>
+          <ngx-codemirror
+            #codemirrorJavascript
+            [options]="codeMirrorOptionsJavascrip"
+            [(ngModel)]="contentJavascript"
+            (ngModelChange)="setEditorContentJavascript($event)"
+          >
+          </ngx-codemirror>
+        </div>
+      </div>      
+      <button class="btn btn-warning text-center mt-2" [disabled]="!validation()" (click)="saveTheme()">Guardar</button>
+    </div>
+  </div>
+</div>

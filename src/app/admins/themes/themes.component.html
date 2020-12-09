@@ -9,8 +9,8 @@
   </div>
 
   <!-- CONTENT COMPONENT -->
-  <div class="row">
-    <div class="col-lg-4 col-md-6 col-sm-8 col-12">
+  <div class="row text-center">
+    <div class="col-lg-12 col-md-10 col-sm-10 col-12">
       <div class="card">
         <div class="card-body">
           <h5 class="card-tittle text-center">Lista de temas</h5>
@@ -19,6 +19,7 @@
               <tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">Descripción</th>
+                <th scope="col">Fecha creación</th>  
                 <th scope="col">Opción</th>
               </tr>
             </thead>
@@ -26,71 +27,20 @@
               <tr>
                 <td>Fasthsop2.0</td>
                 <td>Tema estilo dark</td>
-                <td><button class="btn btn-warning btn-sm">Editar</button></td>
+                <td>1200/21/03</td>
+                <td><button class="btn btn-danger btn-sm">Eliminar</button></td>
               </tr>
               <tr>
                 <td>Fasthsop2.0</td>
                 <td>lito</td>
-                <td><button class="btn btn-warning btn-sm">Editar</button></td>
+                <td>1200/21/03</td>
+                <td><button class="btn btn-danger btn-sm">Eliminar</button></td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
-    <div class="col-lg-8 col-12 col-md-6 col-sm-8">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-tittle text-center">Nuevo tema</h5>
-          <form>
-            <div class="form-group">
-              <label for="nombreTema">Nombre</label>
-              <input
-                type="text"
-                class="form-control"
-                id="nombreTema"
-                placeholder="Dark.."
-              />
-            </div>
-            <div class="form-group">
-              <label for="descripcionTema">Descripción</label>
-              <textarea
-                class="form-control"
-                name="descripcionTema"
-                id=""
-                rows="2"
-                placeholder="Tema para tiendas de ropa.."
-              ></textarea>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-tittle">Css</h5>
-          <ngx-codemirror
-            #codemirrorCss
-            [options]="codeMirrorOptions"
-            [(ngModel)]="contentCss"
-            (ngModelChange)="setEditorContentJavascropt($event)"
-          >
-          </ngx-codemirror>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-tittle text-center">Javascript</h5>
-          <ngx-codemirror
-            #codemirrorJavascript
-            [options]="codeMirrorOptions2"
-            [(ngModel)]="contentJavascript"
-            (ngModelChange)="setEditorContentCss($event)"
-          >
-          </ngx-codemirror>
-        </div>
-      </div>
-
-      <button class="btn btn-warning text-center">Guardar</button>
-    </div>
+    
   </div>
 </div>

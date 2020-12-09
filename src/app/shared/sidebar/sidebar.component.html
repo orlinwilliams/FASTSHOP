@@ -132,6 +132,7 @@
         class="row justify-content-between sidebar-nav"
         [routerLink]="['/admin/themes']"
         [routerLinkActive]="['active-link']"
+        (click)="optionsThemes()"
       >
         <div class="col-9">
           <label for="">Temas</label>
@@ -140,6 +141,19 @@
           <fa-icon [icon]="faChevronCircleRight"></fa-icon>
         </div>
       </div>
+      <div
+        class="row justify-content-between sidebar-nav"
+        *ngIf="optionTheme"
+        [routerLink] = "['/admin/themes/theme']"
+      >
+        <div class="col-9" >
+          <label class="ml-2" >Nuevo Tema</label>
+        </div>
+        <div class="col-3 iconArrow">
+          <fa-icon [icon]="faChevronCircleRight"></fa-icon>
+        </div>
+      </div>
+
       <div
         class="row justify-content-between sidebar-nav"
         [routerLink]="['/admin/users']"
