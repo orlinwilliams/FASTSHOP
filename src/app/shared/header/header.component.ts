@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
   toggleSidebar() {
     this.openedSibebar = !this.openedSibebar;
     this.aponedSidebarService.opened = this.openedSibebar;
-    console.log(this.aponedSidebarService.opened);
+    
   }
   logout(){
     if(confirm('Esta seguro de salir')){

@@ -3,9 +3,7 @@
     <div class="col-12">
       <h3>Administración de temas</h3>
       <p>
-        Crea un nuevo tema, recuerde que debe 
-        definir la hoja de estilos y los efectos en Javascript en caso de que el tema los necesite, 
-        tambien puede añadir imágenes relacionadas al tema. 
+        {{instructions}} 
       </p>
     </div>
   </div>
@@ -40,7 +38,7 @@
           </form>
         </div>
       </div>
-      <div class="card">
+      <div class="card" *ngIf="buttonControl=='newTheme'">
         <div class="card-body">
           <h5 class="card-tittle text-center">Agregar imágenes del tema</h5>
           <ngx-dropzone (change)="onSelect($event)" class="custom-dropzone">
@@ -52,6 +50,7 @@
               [removable]="true"
               (removed)="onRemove(f)"
               [accept]="'image/*'"
+              [expandable]="true"
             >
               <ngx-dropzone-label
                 >{{ f.name }} ({{ f.type }})</ngx-dropzone-label
@@ -86,7 +85,10 @@
           </ngx-codemirror>
         </div>
       </div>      
-      <button class="btn btn-warning text-center mt-2" [disabled]="!validation()" (click)="saveTheme()">Guardar</button>
+      <button class="btn btn-warning mt-2" *ngIf="buttonControl=='newTheme'" [disabled]="!validation()" (click)="saveTheme()">Guardar</button>
+      <button class="btn btn-warning mt-2" *ngIf="buttonControl=='editTheme'" [disabled]="!formTheme.valid" (click)="updateTheme()">Actualizar</button>
+      <button class="btn btn-secondary mt-2" *ngIf="buttonControl=='editTheme'" [routerLink]="['/admin/themes/theme']" >Nuevo tema</button>
+      <button class="btn btn-secondary mt-2" *ngIf="buttonControl=='editTheme'" [routerLink]="['/admin/themes']" >Ver temas</button>
     </div>
   </div>
 </div>

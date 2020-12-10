@@ -10,7 +10,7 @@
 
   <!-- CONTENT COMPONENT -->
   <div class="row text-center">
-    <div class="col-lg-12 col-md-10 col-sm-10 col-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
       <div class="card">
         <div class="card-body">
           <h5 class="card-tittle text-center">Lista de temas</h5>
@@ -19,28 +19,61 @@
               <tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">Descripción</th>
-                <th scope="col">Fecha creación</th>  
+                <th scope="col">Autor</th>
+                <th scope="col">Fecha creación</th>
+                <th scope="col">Opción</th>
                 <th scope="col">Opción</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Fasthsop2.0</td>
-                <td>Tema estilo dark</td>
-                <td>1200/21/03</td>
-                <td><button class="btn btn-danger btn-sm">Eliminar</button></td>
-              </tr>
-              <tr>
-                <td>Fasthsop2.0</td>
-                <td>lito</td>
-                <td>1200/21/03</td>
-                <td><button class="btn btn-danger btn-sm">Eliminar</button></td>
+              <tr *ngFor="let theme of themes">
+                <td>{{ theme.title }}</td>
+                <td>{{ theme.description }}</td>
+                <td>{{ theme.createdBy[0].username }}</td>
+                <td>{{ theme.createdAt.substring(0, 10) }}</td>
+                <td><button class="btn btn-warning btn-sm" (click)="editTheme(theme._id)">Editar</button></td>
+                <td>
+                  <button
+                    class="btn btn-danger btn-sm"
+                    (click)="openModalDeleteTheme(theme._id,modalDeleteTheme)"
+                  >
+                    Eliminar
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
-    
   </div>
 </div>
+<!-- Mdadal confirm -->
+<ng-template #modalDeleteTheme let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Confirmar</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label
+          > <h6>¿Esta seguro de eliminar este ítem?</h6>Este proceso no es
+          reversible, también se eliminaran las imágenes asociadas al tema.</label
+        >
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button  class="btn btn-danger btn-sm" (click)="deleteTheme()" >
+      Eliminar
+    </button>
+  </div>
+</ng-template>

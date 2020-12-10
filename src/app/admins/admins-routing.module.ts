@@ -22,6 +22,7 @@ const routes: Routes = [
       { path: 'users/companies', component: UsersCompaniesComponent },
       { path: 'users/clients', component: UsersClientsComponent },
       { path: 'themes/theme', component: ThemeComponent },
+      { path: 'themes/theme/:id', component: ThemeComponent },
     ],
   },
 ];
