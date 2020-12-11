@@ -6,6 +6,7 @@ import { faCcPaypal, faCcVisa } from '@fortawesome/free-brands-svg-icons';
 import { PricingService } from 'src/app/services/shared/pricing.service';
 import { UserRolesService } from 'src/app/services/shared/user-roles.service';
 import { RegisterService } from 'src/app/services/login-register/register.service';
+import { ToastService } from 'src/app/services/shared/toast.service';
 
 @Component({
   selector: 'app-register',
@@ -67,7 +68,8 @@ export class RegisterComponent implements OnInit {
     private modalPayCompany: NgbModal,
     private getPricingService: PricingService,
     private getRoleService: UserRolesService,
-    private saveClientService: RegisterService
+    private registerService: RegisterService,
+    private toastService:ToastService
   ) {}
 
   ngOnInit(): void {
@@ -126,7 +128,7 @@ export class RegisterComponent implements OnInit {
       idChosseRole: this.idChosseRole,
     };
 
-    this.saveClientService.saveClient(data).subscribe(
+    this.registerService.saveClient(data).subscribe(
       (res) => {
         console.log(res);
       },
@@ -157,7 +159,21 @@ export class RegisterComponent implements OnInit {
       categoryCompany: this.formRegisterCompany.get('categoryCompany').value,
       price: this.idChoosePackage,
     };
+    this.registerService.saveUser(data).subscribe(
+      (res:any) =>{
+        if(res.status){
+          this.toastService.dataToast = {
+            showToast: true,
+            classToast: 'success',
+            message: 'Usuario agregado con éxito',
+          };
+        }
+        console.log(res);
+      }, 
+      error=>console.log(error))
+    
     this.modalPayCompany.dismissAll();
     console.log(data);
+
   }
 }

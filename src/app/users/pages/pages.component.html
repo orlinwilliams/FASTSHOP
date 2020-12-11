@@ -7,7 +7,7 @@
   </div>
   <!-- CONTENT COMPONENT -->
   <div class="row justify-content-center">
-    <div class="col-12 col-lg-8 col-md-10 col-sm-10">
+    <div class="col-12 col-lg-8 col-md-8 col-sm-12">
       <div class="card">
         <div class="card-body">
           <h5 class="card-tittle text-center">Lista de páginas</h5>
@@ -64,6 +64,44 @@
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-5 col-sm-6 col-6">
+      <!-- DATOS PAGINA -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-tittle text-center">Nueva página</h5>
+              <form >
+                <div class="form-group">
+                <label for="nombrePagina">Título</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Home, Contactanos.."
+                  id="nombrePagina"
+                />
+                </div>
+                <div class="form-group">
+                <label for="contenidoPagina">Descripción</label>
+                <textarea
+                  id="contenidoPagina"
+                  rows="2"
+                  class="form-control"
+                ></textarea>
+                </div>
+                <div class="form-group">
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                    <label class="custom-control-label" for="customSwitch1">Utilizar tema por defecto</label>
+                  </div>
+                </div>
+                <button class="btn btn-warning btn-sm">Guardar</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>

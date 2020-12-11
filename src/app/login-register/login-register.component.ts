@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastService } from '../services/shared/toast.service';
 
 @Component({
   selector: 'app-login-register',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginRegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public toastService: ToastService) { }
 
   ngOnInit(): void {
   }

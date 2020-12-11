@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faWindowRestore } from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from '../../services/login-register/login.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,9 +8,14 @@ import { faWindowRestore } from '@fortawesome/free-solid-svg-icons';
 })
 export class HomeComponent implements OnInit {
   faWindowRestore = faWindowRestore;
-  constructor() { }
-
+  username:string = 'User';
+  constructor(private loginService:LoginService) { }
   ngOnInit(): void {
+    this.getUsername();
+  }
+
+  getUsername(){
+    this.username = this.loginService.currentUser.username
   }
 
 }
