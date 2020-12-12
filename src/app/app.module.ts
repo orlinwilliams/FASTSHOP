@@ -21,6 +21,7 @@ import { CodemirrorModule } from '@ctrl/ngx-codemirror';
     FontAwesomeModule,
     HttpClientModule,
     CodemirrorModule,
+    
   ],
 
   providers: [],

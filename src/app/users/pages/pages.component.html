@@ -15,15 +15,15 @@
             <thead>
               <tr>
                 <th scope="col">Nombre</th>
-                <th scope="col">Categoria</th>
+                <th scope="col">Descriptión</th>
                 <th scope="col">Editar</th>
                 <th scope="col">Eliminar</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Fasthsop2.0</td>
-                <td>Contactanos</td>
+              <tr *ngFor="let page of pages">
+                <td>{{page.title}}</td>
+                <td>{{page.description}}</td>
                 <td>
                   <div ngbDropdown>
                     <button
@@ -34,34 +34,14 @@
                       Editar
                     </button>
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                      <button ngbDropdownItem>Ediar código</button>
-                      <button ngbDropdownItem>Editar en línea</button>
+                      <button ngbDropdownItem (click) ="editPage(page._id)">Ediar página</button>
+                      <button ngbDropdownItem (click) ="editData(page._id)">Editar datos</button>
                     </div>
                   </div>
                 </td>
 
-                <td><button class="btn btn-danger btn-sm">Eliminar</button></td>
-              </tr>
-              <tr>
-                <td>Fasthsop2.0</td>
-                <td>Home</td>
-                <td>
-                  <div ngbDropdown>
-                    <button
-                      class="btn btn-warning"
-                      id="dropdownBasic1"
-                      ngbDropdownToggle
-                    >
-                      Editar
-                    </button>
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                      <button ngbDropdownItem>Ediar código</button>
-                      <button ngbDropdownItem>Editar en línea</button>
-                    </div>
-                  </div>
-                </td>
-                <td><button class="btn btn-danger btn-sm">Eliminar</button></td>
-              </tr>
+                <td><button class="btn btn-danger btn-sm" (click)="deletePage(page._id)">Eliminar</button></td>
+              </tr>              
             </tbody>
           </table>
         </div>
@@ -74,7 +54,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-tittle text-center">Nueva página</h5>
-              <form >
+              <form [formGroup]="formPage">
                 <div class="form-group">
                 <label for="nombrePagina">Título</label>
                 <input
@@ -82,6 +62,7 @@
                   class="form-control"
                   placeholder="Home, Contactanos.."
                   id="nombrePagina"
+                  formControlName = "title"
                 />
                 </div>
                 <div class="form-group">
@@ -90,15 +71,16 @@
                   id="contenidoPagina"
                   rows="2"
                   class="form-control"
+                  formControlName = "description"
                 ></textarea>
                 </div>
                 <div class="form-group">
                   <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1">Utilizar tema por defecto</label>
+                    <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName = "mainPage">
+                    <label class="custom-control-label" for="customSwitch1">Utilizar esta página por defecto</label>
                   </div>
                 </div>
-                <button class="btn btn-warning btn-sm">Guardar</button>
+                <button class="btn btn-warning btn-sm" [disabled]="!formPage.valid" (click)="savePage()">Guardar</button>
               </form>
             </div>
           </div>

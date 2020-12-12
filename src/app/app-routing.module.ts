@@ -27,6 +27,8 @@ const routes: Routes = [
       canActivate:[LoginAdminGuard]
   },
   { path: 'not-found', component: NotFoundComponent },
+  { path: 'admin-companies/pages/page', loadChildren: () => import('./edit-pages/edit-pages.module').then(m => m.EditPagesModule) },
+  
   { path: '**', redirectTo: 'not-found' },
 ];
 

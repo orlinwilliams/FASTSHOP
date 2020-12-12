@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { CategoriesComponent } from './categories/categories.component';
 import { FilesComponent } from './files/files.component';
 import { HomeComponent } from './home/home.component';
-import { PageComponent } from './page/page.component';
 import { PagesComponent } from './pages/pages.component';
 import { ProductComponent } from './product/product.component';
 import { ProductsComponent } from './products/products.component';
@@ -47,10 +46,6 @@ const routes: Routes = [
       {
         path: 'pages',
         component: PagesComponent,
-      },
-      {
-        path: 'pages/:id',
-        component: PageComponent,
       },
     ],
   },

@@ -55,6 +55,7 @@ export class SidebarComponent implements OnInit {
       this._modeNum = 1;
     }
   }
+  //-------------Mostrar mas opciones
   showOptions(){
     this.optionUser = ! this.optionUser
   }

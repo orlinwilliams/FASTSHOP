@@ -1,0 +1,17 @@
+ng-sidebar-container {
+  height: 92vh;
+}
+::ng-deep aside {
+  background-color:white;
+  box-shadow: 0 0 1em rgba(85, 85, 85, 0.1);
+  width: 300px;
+  
+}
+.block-big {
+  background: blue;
+  height: 400px;
+}
+.block-medium{
+  background: red;
+  height: 400px;
+}

@@ -15,7 +15,6 @@ import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { PagesComponent } from './pages/pages.component';
-import { PageComponent } from './page/page.component';
 
 
 
@@ -29,7 +28,7 @@ import { PageComponent } from './page/page.component';
     ProductComponent,
     CategoriesComponent,
     PagesComponent,
-    PageComponent,
+    
     
   ],
   imports: [
