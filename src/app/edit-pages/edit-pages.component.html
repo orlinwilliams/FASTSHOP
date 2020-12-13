@@ -1,29 +1,24 @@
 <app-header></app-header>
 <ng-sidebar-container>
   <!-- A sidebar -->
-  <ng-sidebar [(opened)]="_opened"
-  [mode]="_MODES[_modeNum]"
-  >
+  <ng-sidebar [(opened)]="_opened" [mode]="_MODES[_modeNum]">
     <h5 class="text-center">Agregar contenido</h5>
     <div class="container">
       <div class="row border-bottom">
         <div class="col-11">
           <h6 class="text-center">Agregar bloque</h6>
-          <form>
+          <form [formGroup]="formBlock">
             <div class="form-group">
-              <label for="sizeHigth">Tamaño en altura</label>
-              <select name="" id="sizeHigth" class="form-control">
-                <option value="">Grande</option>
-                <option value="">Mediano</option>
-                <option value="">Pequeño</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="sizeHigth">Tamaño en ancho</label>
-              <select name="" id="sizeHigth" class="form-control">
-                <option value="">Grande</option>
-                <option value="">Mediano</option>
-                <option value="">Pequeño</option>
+              <label for="sizeWidth">Tamaño en ancho</label>
+              <select
+                name=""
+                id="ssizeWidth"
+                class="form-control"
+                formControlName="width"
+              >
+                <option value="grande">Grande</option>
+                <option value="mediano">Mediano</option>
+                <option value="pequeño">Pequeño</option>
               </select>
             </div>
             <div class="row text-center">
@@ -58,7 +53,10 @@
                 </div>
               </div>
             </div>
-            <button class="btn btn-warning btn-sm mb-3">Agregar</button>
+
+            <button class="btn btn-warning btn-sm mb-3" (click)="createBlock()">
+              Agregar
+            </button>
           </form>
         </div>
       </div>
@@ -67,23 +65,83 @@
 
   <!-- Page content -->
   <div ng-sidebar-content>
-    <div class="container" #mainContent>
-      <!-- <div class="row" >
-        <div class="col-lg-12 block-big">
-          <button class="btn btn-danger btn-sm">Eliminar</button>
-          <button class="btn btn-warning btn-sm">Editar</button>
-          <div [innerHTML]="theHtmlString">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 block-medium">
-          <button class="btn btn-danger btn-sm">Eliminar</button>
-          <button class="btn btn-warning btn-sm">Editar</button>
-          <div [innerHTML]="theHtmlString">
-          </div>
-        </div>
-      </div> -->
-    </div>
+    <div class="container" #mainContent></div>
   </div>
 </ng-sidebar-container>
+
+<!--Modal para editar-->
+<ng-template #modalEdit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Editar página</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row mb-3">
+      <div class="col-3">
+        <span
+          class="nav-item-editor"
+          [ngClass]="{ 'nav-item-current': optionSelect == 'html' }"
+          (click)="changeHtml()"
+          >Editar html</span
+        >
+      </div>
+      <div class="col-3">
+        <span
+          class="nav-item-editor"
+          [ngClass]="{ 'nav-item-current': optionSelect == 'css' }"
+          (click)="changeCss()"
+          >Editar css</span
+        >
+      </div>
+      <div class="col-3">
+        <span
+          class="nav-item-editor"
+          [ngClass]="{ 'nav-item-current': optionSelect == 'static' }"
+          (click)="changeEstatic()"
+          >Editor estático</span
+        >
+      </div>
+    </div>
+    <div class="row" *ngIf="optionSelect == 'html'">
+      <div class="col-12">
+        <ngx-codemirror
+          #codemirrorHtml
+          [options]="codeMirrorOptionsHtml"
+          [(ngModel)]="contentHtml"
+          (ngModelChange)="addContent()"
+        >
+        </ngx-codemirror>
+      </div>
+    </div>
+    <div class="row" *ngIf="optionSelect == 'css'">
+      <div class="col-12">
+        <ngx-codemirror
+          #codemirrorCss
+          [options]="codeMirrorOptionsCss"
+          [(ngModel)]="contentCss"
+        >
+        </ngx-codemirror>
+      </div>
+    </div>
+    <div class="row" *ngIf="optionSelect == 'static'">
+      <div class="col-12"></div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-warning"
+      (click)="modal.close('Save click')"
+    >
+      Guardar
+    </button>
+  </div>
+</ng-template>
+

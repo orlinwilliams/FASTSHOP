@@ -15,7 +15,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { PagesComponent } from './pages/pages.component';
-
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 
 
 @NgModule({
@@ -37,7 +37,8 @@ import { PagesComponent } from './pages/pages.component';
     NgbModule,
     UsersRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CodemirrorModule
   ],
 })
 export class UsersModule {}

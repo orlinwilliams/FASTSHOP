@@ -8,10 +8,21 @@ ng-sidebar-container {
   
 }
 .block-big {
-  background: blue;
-  height: 400px;
+  border: 1px solid black; 
+  height: 10vh;
+  cursor: pointer;
 }
 .block-medium{
   background: red;
   height: 400px;
+  
+}
+.nav-item-editor{
+  cursor: pointer;
+  color: #8D8F87;
+  font-weight:500;
+}
+.nav-item-current{
+  color: #585858;
+  font-weight:800;
 }
