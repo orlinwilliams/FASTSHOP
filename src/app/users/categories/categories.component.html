@@ -14,17 +14,18 @@
               <tr>
                 <th scope="col">Categoría</th>
                 <th scope="col">Descripción</th>
+                <th scope="col">Opción</th>
+                <th scope="col">Opción</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Ropa</td>
-                <td>Ropa nueva de marca zara</td>
+              <tr *ngFor="let category of categories">
+                <td>{{category.nameCategory}}</td>
+                <td>{{category.description}}</td>
+                <td><button class="btn btn-warning btn-sm">Editar</button> </td>
+                <td><button class="btn btn-danger btn-sm">Eliminar</button> </td>
               </tr>
-              <tr>
-                <td>Zapatos Caballeros</td>
-                <td>Zapatos para oficina para caballeros</td>
-              </tr>
+              
             </tbody>
           </table>
         </div>
