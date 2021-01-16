@@ -36,10 +36,11 @@ export class PagesComponent implements OnInit {
 
   editPage(id) {
     console.log(id);
-    this.router.navigate(['/admin-companies/pages/', id]);
+    this.router.navigate(['/admin-companies/pages/page', id]);
   }
   deletePage(id) {}
-  editData(id) {}
+  editData(id) {    
+  }
   getPages() {
     this.pagesService.getPages(this.idUser).subscribe(
       (res: any) => {
@@ -47,6 +48,7 @@ export class PagesComponent implements OnInit {
           console.log(res);
           this.pages = res.pages;
         }
+        console.log(res);
       },
       (error) => console.log(error)
     );

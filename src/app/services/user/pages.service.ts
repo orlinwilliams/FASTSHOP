@@ -10,9 +10,12 @@ export class PagesService {
   constructor(private httpClient: HttpClient) {}
 
   getPages(id): Observable<any> {
-    return this.httpClient.post(`${this.url}/all`,{id});
+    return this.httpClient.get(`${this.url}/${id}`);
   }
   savePage(page): Observable<any> {
     return this.httpClient.post(this.url, page);
+  }
+  getPage(id):Observable<any>{
+    return this.httpClient.get(`${this.url}/page/${id}`);
   }
 }
